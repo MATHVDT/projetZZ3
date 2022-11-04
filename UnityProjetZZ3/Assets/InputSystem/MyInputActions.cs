@@ -802,12 +802,12 @@ namespace UnityEngine.InputSystem
             ""actions"": [
                 {
                     ""name"": ""Button A"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""58c4bd69-a76a-4e05-8bad-c9ccf3fc2828"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Button B"",
@@ -860,22 +860,11 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""decf1167-139f-4b5c-82c9-5bf76ec0cd28"",
-                    ""path"": ""<VirtualMouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Button A"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2a3199c7-0abb-4ca1-b869-6b797768290b"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Touch;Keyboard&Mouse;Gamepad"",
                     ""action"": ""Button A"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -886,18 +875,7 @@ namespace UnityEngine.InputSystem
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Button A"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b026a442-ca5f-4696-8613-00b5cce123cf"",
-                    ""path"": ""<Touchscreen>/Press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Touch;Keyboard&Mouse"",
+                    ""groups"": ""Touch;Keyboard&Mouse;Gamepad"",
                     ""action"": ""Button A"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -915,22 +893,11 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3e2fda78-a329-4647-803e-4a69b74186ea"",
-                    ""path"": ""<VirtualMouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Button B"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b0b26eff-530a-4cc9-803b-c06b47409848"",
                     ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch"",
                     ""action"": ""Button B"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -947,18 +914,7 @@ namespace UnityEngine.InputSystem
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c80010d8-7747-4da4-8c1f-b2290ba1b7e1"",
-                    ""path"": ""<VirtualMouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Button Menu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis Keyboard Arrow"",
+                    ""name"": ""1D Axis Keyboard Arrow [Keyboard]"",
                     ""id"": ""f0a7e532-2a1b-41a4-b81a-b0fb914219ff"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -991,18 +947,51 @@ namespace UnityEngine.InputSystem
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis Direction Button [Gamepad]"",
+                    ""id"": ""4318de52-e87d-4796-a0ca-6615467d5963"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8b75f77c-f934-4abe-b8db-6bf39076944a"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""654c3da3-dc4d-4c7f-86f0-783eb927e052"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""8699fbdb-0456-4665-9fb5-e8d9dd6e40e7"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch"",
                     ""action"": ""Button Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis Keyboard Arrow"",
+                    ""name"": ""1D Axis Keyboard Arrow [Keyboard]"",
                     ""id"": ""6d7a23e0-79a3-4b43-8b4e-21042ce59c72"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -1030,6 +1019,39 @@ namespace UnityEngine.InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis Direction Button [Gamepad]"",
+                    ""id"": ""343a56e4-e35b-4068-9658-63c5360ec973"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""66333010-a11a-4819-91bc-f8a05e0011bb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a2b4abab-57fb-4b5d-8c8b-a85a3604b36e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true

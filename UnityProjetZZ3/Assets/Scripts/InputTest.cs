@@ -24,11 +24,11 @@ public class InputTest : MonoBehaviour
         //Debug.Log(horizontalAxis + ", " + verticalAxis);
     }
 
-    public void OnButtonA(InputValue input)
-    {
-        //Debug.Log("OnButtonA()");
-        buttonA = input.isPressed;
-    }
+    //public void OnButtonA(InputValue input)
+    //{
+    //    //Debug.Log("OnButtonA()");
+    //    buttonA = input.isPressed;
+    //}
 
     public void OnButtonB(InputValue input)
     {
