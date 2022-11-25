@@ -507,54 +507,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2802789703021341559, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 3b30cae957e79a549964dc2c9e0545a8, type: 3}
-    - target: {fileID: 2802789703021341559, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 3b30cae957e79a549964dc2c9e0545a8, type: 3}
-    - target: {fileID: 2802789703021341559, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
-    - target: {fileID: 2802789703021341559, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[3].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
-    - target: {fileID: 2802789703789677241, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: b4d18d1cb8b8a2c4cb6860e70d328f9b, type: 3}
-    - target: {fileID: 2802789703789677241, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: b4d18d1cb8b8a2c4cb6860e70d328f9b, type: 3}
-    - target: {fileID: 2802789703789677241, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
-    - target: {fileID: 2802789703789677241, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[3].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
-    - target: {fileID: 2802789704173186828, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: d9e55a1f5f919814dbaf4d89a7f8ccb8, type: 3}
-    - target: {fileID: 2802789704173186828, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: d9e55a1f5f919814dbaf4d89a7f8ccb8, type: 3}
-    - target: {fileID: 2802789704173186828, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
-    - target: {fileID: 2802789704173186828, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
-      propertyPath: m_Delegates.Array.data[3].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
     - target: {fileID: 2802789704662822832, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -639,6 +591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2802789704662822835, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 2802789704662822836, guid: 0f428468d05259246a1cf2aaddeb397b, type: 3}
       propertyPath: m_Name
       value: Canvas
