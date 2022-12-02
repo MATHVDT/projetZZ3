@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7385844365359030702}
   - component: {fileID: 7385844365359030701}
   - component: {fileID: 7385844365359030703}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,18 +26,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7385844365359030691}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7385844367133414927}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1000, y: 100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -962, y: 243}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844365359030702
 CanvasRenderer:
@@ -60,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.28404546, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7385844365381636940}
   - component: {fileID: 7385844365381636931}
   - component: {fileID: 7385844365381636941}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,16 +227,16 @@ RectTransform:
   m_GameObject: {fileID: 7385844365381636928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7385844367375927508}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1250, y: 200}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 1184, y: 179}
+  m_SizeDelta: {x: 235, y: 235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844365381636940
 CanvasRenderer:
@@ -259,14 +259,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 3b30cae957e79a549964dc2c9e0545a8, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 3b30cae957e79a549964dc2c9e0545a8, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 7385844365910947318}
   - component: {fileID: 7385844365910947317}
   - component: {fileID: 7385844365910947319}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,18 +424,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7385844365910947210}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7385844367133414927}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1000, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -965, y: -116}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844365910947318
 CanvasRenderer:
@@ -458,14 +458,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.745283, g: 0.044998176, b: 0.044998176, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 7385844366271959695}
   - component: {fileID: 7385844366271959694}
   - component: {fileID: 7385844366271959688}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -782, y: 63}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844366271959695
 CanvasRenderer:
@@ -657,14 +657,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43030313, g: 0.9811321, b: 0.03147021, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 7385844366525093680}
   - component: {fileID: 7385844366525093687}
   - component: {fileID: 7385844366525093686}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,16 +824,16 @@ RectTransform:
   m_GameObject: {fileID: 7385844366525093684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7385844367375927508}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1250, y: 200}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 904.3, y: 314}
+  m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844366525093680
 CanvasRenderer:
@@ -856,14 +856,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -892,7 +892,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: d9e55a1f5f919814dbaf4d89a7f8ccb8, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -920,7 +920,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: d9e55a1f5f919814dbaf4d89a7f8ccb8, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -976,7 +976,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 7385844366688957058}
   - component: {fileID: 7385844366688957057}
   - component: {fileID: 7385844366688957059}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,16 +1023,16 @@ RectTransform:
   m_GameObject: {fileID: 7385844366688957062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7385844367375927508}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 905, y: -20}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844366688957058
 CanvasRenderer:
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: b4d18d1cb8b8a2c4cb6860e70d328f9b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: b4d18d1cb8b8a2c4cb6860e70d328f9b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1147,7 +1147,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1175,7 +1175,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1206,7 +1206,7 @@ GameObject:
   - component: {fileID: 7385844366782647921}
   - component: {fileID: 7385844366782647920}
   - component: {fileID: 7385844366782647922}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,18 +1220,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7385844366782647925}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7385844367133414927}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1200, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -1143, y: 63}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7385844366782647921
 CanvasRenderer:
@@ -1254,14 +1254,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43030313, g: 0.9811321, b: 0.03147021, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1290,7 +1290,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1318,7 +1318,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1346,7 +1346,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1374,7 +1374,7 @@ MonoBehaviour:
           m_MethodName: set_texture
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1402,7 +1402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7385844367133414927}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Direction Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1418,8 +1418,8 @@ RectTransform:
   m_GameObject: {fileID: 7385844367133414926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7385844365359030700}
   - {fileID: 7385844365910947211}
@@ -1430,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -16, y: -22}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7385844367375927531
@@ -1443,7 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7385844367375927508}
   - component: {fileID: 7385844367375927509}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: '[UI] Controls'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
