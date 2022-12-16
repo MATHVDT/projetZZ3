@@ -15,7 +15,6 @@ public class SetValueControls : MonoBehaviour
     public float horizontalAxis;
     public float verticalAxis;
 
-
     // Button A & B
     public void SetButtonA(bool val)
     {
