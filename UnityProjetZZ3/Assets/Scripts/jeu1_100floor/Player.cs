@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     public float speed;
 
+    public Vector2 PlayerVelocity;
+
     private Rigidbody2D _rb;
     private SetValueControls _controls;
 
@@ -22,7 +24,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 velocity = new Vector2(_controls.horizontalAxis * speed, _rb.velocity.y);
-        _rb.velocity = velocity * Time.deltaTime;
+        PlayerVelocity = new Vector2(_controls.horizontalAxis * speed, _rb.velocity.y);
+    }
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = PlayerVelocity * Time.deltaTime;
     }
 }
