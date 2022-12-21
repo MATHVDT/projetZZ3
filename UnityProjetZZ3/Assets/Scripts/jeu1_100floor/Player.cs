@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerVelocity = new Vector2(_controls.horizontalAxis * speed, _rb.velocity.y);
+        PlayerVelocity = new Vector2(_controls.horizontalAxis * speed, 0);
         Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
     }
 
