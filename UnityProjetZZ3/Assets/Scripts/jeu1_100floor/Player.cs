@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float speed;
 
     public Vector2 PlayerVelocity;
-    public bool AuSol;
+    public bool ContactPlateforme;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _animator = GetComponent<Animator>();
 
-        AuSol = false;
+        ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
 
         _animator.Play("AnimationTree");
@@ -35,31 +35,31 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerVelocity = new Vector2(_controls.horizontalAxis * speed, _rb.velocity.y);
-        Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(AuSol ? 0.0f : -1.0f)}");
+        Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
     }
 
     private void FixedUpdate()
     {
         _rb.velocity = PlayerVelocity * Time.deltaTime;
-        _animator.SetFloat("moveX", PlayerVelocity.x / Math.Abs(PlayerVelocity.x));
-        _animator.SetFloat("moveY", (AuSol ? 0.0f : 1.0f));
+        _animator.SetFloat("moveX", PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x)));
+        _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
 
     }
 
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        AuSol = true;
+        ContactPlateforme = true;
     }
 
     //public void OnCollisionStay2D(Collision collision)
     //{
-    //    AuSol = true;
+    //    ContactPlateforme = true;
     //}
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        AuSol = false;
+        ContactPlateforme = false;
     }
 
 }
