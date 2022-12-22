@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,7 +9,10 @@ public class Player : MonoBehaviour
     public readonly uint VIE_MAX = 10;
     public uint vie { get; private set; }
 
-    public float speed;
+    public float Speed;
+    public float Yvelocity;
+    public float Gravity;
+    public float GravityVelocity;
 
     public Vector2 PlayerVelocity;
     public bool ContactPlateforme;
@@ -27,6 +31,8 @@ public class Player : MonoBehaviour
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
 
+        Yvelocity = Gravity;
+
         _animator.Play("AnimationTree");
 
     }
@@ -34,8 +40,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerVelocity = new Vector2(_controls.horizontalAxis * speed, 0);
-        Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
+        PlayerVelocity = new Vector2(_controls.horizontalAxis * Speed, Yvelocity);
+
+        if (Yvelocity > Gravity)
+            Yvelocity -= GravityVelocity;
+
+
+        //Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
     }
 
     private void FixedUpdate()
@@ -50,6 +61,7 @@ public class Player : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         ContactPlateforme = true;
+        Yvelocity = Gravity;
     }
 
     //public void OnCollisionStay2D(Collision collision)
