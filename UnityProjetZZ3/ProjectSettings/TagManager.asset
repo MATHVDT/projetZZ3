@@ -13,8 +13,8 @@ TagManager:
   - UI
   - UI Console
   - UI Game
-  - 
-  - 
+  - Player
+  - Plateforme
   - 
   - 
   - 
@@ -41,9 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI Console
-    uniqueID: 2949311849
+  - name: Plateforme
+    uniqueID: 3474375043
+    locked: 0
+  - name: Player
+    uniqueID: 2130325167
     locked: 0
   - name: UI Game
     uniqueID: 2148150309
+    locked: 0
+  - name: UI Console
+    uniqueID: 2949311849
     locked: 0
