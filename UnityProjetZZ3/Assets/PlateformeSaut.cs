@@ -14,40 +14,26 @@ public class PlateformeSaut : MonoBehaviour
     public float ForceSaut;
 
 
-    //private bool _replieeActive;
-    //private bool _ecraseeActive;
-    //private bool _deplieeActive;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //_replieeActive = true;
-        //_ecraseeActive = false;
-        //_deplieeActive = false;
-
         Repliee = GameObject.Find("PlateformeSautRepliee");
         Ecrasee = GameObject.Find("PlateformeSautEcrasee");
         Depliee = GameObject.Find("PlateformeSautDepliee");
-
 
         Repliee.SetActive(true);
         Ecrasee.SetActive(false);
         Depliee.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("Collision plateforme saut");
-
 
         if (collision.gameObject.CompareTag("Player"))
         { // Player sur la plateforme
+            Transform transformPlayer = collision.gameObject.transform;
 
             float timePause = 0.25f;
 
@@ -55,8 +41,9 @@ public class PlateformeSaut : MonoBehaviour
             Ecrasee.SetActive(true);
             //Debug.Log("Plateforme ecrasée");
 
-            yield return new WaitForSeconds(timePause);
+            yield return new WaitForSeconds(timePause/2);
 
+            collision.gameObject.GetComponent<Player>().Yvelocity = ForceSaut;
             Ecrasee.SetActive(false);
             Depliee.SetActive(true);
             //Debug.Log("Plateforme depliée");

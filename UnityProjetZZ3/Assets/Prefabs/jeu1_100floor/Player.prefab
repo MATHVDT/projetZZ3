@@ -155,7 +155,7 @@ MonoBehaviour:
   Speed: 120
   Yvelocity: 0
   Gravity: -150
-  GravityVelocity: 1.5
+  GravityVelocity: 2
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!95 &2410440989167791318

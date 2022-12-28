@@ -24,18 +24,13 @@ public class Saut : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        //Debug.Log("Collision stay");
-    }
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Collision Enter");
         if (collision.gameObject.CompareTag("Player"))
         {
-            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, _forceSaut), ForceMode2D.Impulse);
-            collision.gameObject.GetComponent<Player>().Yvelocity = _forceSaut;
+            //collision.gameObject.GetComponent<Player>().Yvelocity = _forceSaut;
         }
     }
 }

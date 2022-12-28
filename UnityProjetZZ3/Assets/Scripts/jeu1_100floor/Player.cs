@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
         if (Yvelocity > Gravity)
             Yvelocity -= GravityVelocity;
 
-
         //Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
     }
 
@@ -61,13 +60,8 @@ public class Player : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         ContactPlateforme = true;
-        Yvelocity = Gravity;
     }
 
-    //public void OnCollisionStay2D(Collision collision)
-    //{
-    //    ContactPlateforme = true;
-    //}
 
     public void OnCollisionExit2D(Collision2D collision)
     {
