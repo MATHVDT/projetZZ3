@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public float Speed;
     public float Yvelocity;
+    public float Xvelocity;
     public float Gravity;
     public float GravityVelocity;
 
@@ -21,9 +22,13 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private SetValueControls _controls;
 
+    //private Transform transform;
+    private Vector3 _initialPosition;
+
     // Start is called before the first frame update
     void Start()
     {
+        _initialPosition = transform.position;
         _rb = GetComponent<Rigidbody2D>();
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _animator = GetComponent<Animator>();
@@ -32,6 +37,8 @@ public class Player : MonoBehaviour
         PlayerVelocity = Vector2.zero;
 
         Yvelocity = Gravity;
+        GravityVelocity = Gravity;
+        Xvelocity = 0;
 
         _animator.Play("AnimationTree");
 
@@ -40,18 +47,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerVelocity = new Vector2(_controls.horizontalAxis * Speed, Yvelocity);
+        if (_controls.buttonMenu)
+            transform.position = _initialPosition;
 
-        if (Yvelocity > Gravity)
-            Yvelocity -= GravityVelocity;
+        PlayerVelocity = new Vector2(_controls.horizontalAxis * Speed + Xvelocity, Yvelocity);
 
-        //Debug.Log($"x :  {PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x))}, y : {(ContactPlateforme ? 0.0f : -1.0f)}");
+        if (Yvelocity > 0)
+        {
+            Yvelocity += GravityVelocity * Time.deltaTime;
+        }
+        else
+        {
+            Yvelocity = GravityVelocity;
+        }
+
+        //if (Xvelocity > 0)
+        //{
+        //    Xvelocity -= 10*GravityVelocity * Time.deltaTime;
+        //}
+        //else
+        //{
+        //    Xvelocity = 0;
+        //}
+
     }
 
     private void FixedUpdate()
     {
-        _rb.velocity = PlayerVelocity * Time.deltaTime;
-        _animator.SetFloat("moveX", PlayerVelocity.x / Math.Abs((PlayerVelocity.x == 0 ? 1 : PlayerVelocity.x)));
+        _rb.velocity = PlayerVelocity;
+        _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
 
     }
@@ -68,4 +92,9 @@ public class Player : MonoBehaviour
         ContactPlateforme = false;
     }
 
+
+    public void ResetGravityPlayer()
+    {
+        GravityVelocity = Gravity;
+    }
 }

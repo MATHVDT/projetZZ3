@@ -33,17 +33,16 @@ public class PlateformeSaut : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         { // Player sur la plateforme
-            Transform transformPlayer = collision.gameObject.transform;
-
             float timePause = 0.25f;
 
             Repliee.SetActive(false);
             Ecrasee.SetActive(true);
             //Debug.Log("Plateforme ecrasée");
 
-            yield return new WaitForSeconds(timePause/2);
+            yield return new WaitForSeconds(timePause / 2);
 
             collision.gameObject.GetComponent<Player>().Yvelocity = ForceSaut;
+            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut));
             Ecrasee.SetActive(false);
             Depliee.SetActive(true);
             //Debug.Log("Plateforme depliée");
@@ -56,4 +55,13 @@ public class PlateformeSaut : MonoBehaviour
 
         }
     }
+
+    //public IEnumerator OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        yield return new WaitForSeconds(0.5f);
+    //        collision.gameObject.GetComponent<Player>().Yvelocity = collision.gameObject.GetComponent<Player>().Gravity;
+    //    }
+    //}
 }

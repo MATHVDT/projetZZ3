@@ -197,7 +197,7 @@ MonoBehaviour:
   Repliee: {fileID: 6683256286650190819}
   Ecrasee: {fileID: 6683256286879710693}
   Depliee: {fileID: 6683256284961955079}
-  ForceSaut: 90
+  ForceSaut: 1
 --- !u!61 &6683256285022149690
 BoxCollider2D:
   m_ObjectHideFlags: 0
