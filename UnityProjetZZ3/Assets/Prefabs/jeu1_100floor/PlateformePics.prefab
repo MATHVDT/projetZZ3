@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8735641017019178833}
   - component: {fileID: 8735641017019178832}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 8735641017165418955}
   - component: {fileID: 1725633229}
   - component: {fileID: 588728585}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Pics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ae75303cbbb51498dee0d6594c56d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Degat: 4
+  Damage: 4
 --- !u!1 &8735641017380328811
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +142,9 @@ GameObject:
   - component: {fileID: 8735641017380328808}
   - component: {fileID: 8735641017380328810}
   - component: {fileID: 1776834161}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PlateformePics
-  m_TagString: Untagged
+  m_TagString: Plateforme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

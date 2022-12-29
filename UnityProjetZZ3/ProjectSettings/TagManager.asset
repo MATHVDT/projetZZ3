@@ -55,6 +55,9 @@ TagManager:
   - name: ContourCarte
     uniqueID: 2017661201
     locked: 0
+  - name: UI
+    uniqueID: 3846287919
+    locked: 0
   - name: UI Game
     uniqueID: 2148150309
     locked: 0

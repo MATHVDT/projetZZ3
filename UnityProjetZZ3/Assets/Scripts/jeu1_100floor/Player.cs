@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (_controls.buttonMenu)
             transform.position = _initialPosition;
 
@@ -75,6 +77,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Vie == 0)
+        {
+            Debug.Log("Fin du niveau.");
+            PlayerVelocity = Vector2.zero;
+            this.enabled = false;
+        }
         _rb.velocity = PlayerVelocity;
         _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));

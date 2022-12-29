@@ -5,23 +5,14 @@ using UnityEngine;
 public class PicsHautEcran : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public uint Damage;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             // Enleve la Vie au Player
-            collision.gameObject.GetComponent<Player>().PrendreDamage(4);
+            collision.gameObject.GetComponent<Player>().PrendreDamage(Damage);
 
             // Récupère le collider de la plateforme pour sur laquelle 
             // le player est posée, et la rend trigger
