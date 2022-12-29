@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public readonly uint VIE_MAX = 10;
-    public uint vie { get; private set; }
+    public uint Vie;
 
     public float Speed;
     public float Yvelocity;
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _animator = GetComponent<Animator>();
 
+        Vie = VIE_MAX;
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
 
@@ -83,18 +84,25 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        ContactPlateforme = true;
+        if (collision.gameObject.CompareTag("Plateforme"))
+            ContactPlateforme = true;
     }
 
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        ContactPlateforme = false;
+        if (collision.gameObject.CompareTag("Plateforme"))
+            ContactPlateforme = false;
     }
 
 
     public void ResetGravityPlayer()
     {
         GravityVelocity = Gravity;
+    }
+
+    public void PrendreDamage(uint damage)
+    {
+        Vie -= (damage < Vie ? damage : Vie);
     }
 }

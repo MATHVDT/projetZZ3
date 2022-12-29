@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ContourCarte
+  - Plateforme
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - UI Game
   - Player
   - Plateforme
-  - 
-  - 
+  - ContourCarte
+  - Decor
   - 
   - 
   - 
@@ -41,11 +43,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Decor
+    uniqueID: 2679462909
+    locked: 0
   - name: Plateforme
     uniqueID: 3474375043
     locked: 0
   - name: Player
     uniqueID: 2130325167
+    locked: 0
+  - name: ContourCarte
+    uniqueID: 2017661201
     locked: 0
   - name: UI Game
     uniqueID: 2148150309
