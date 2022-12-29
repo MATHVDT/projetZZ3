@@ -86,7 +86,6 @@ public class Player : MonoBehaviour
         _rb.velocity = PlayerVelocity;
         _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
-
     }
 
 
