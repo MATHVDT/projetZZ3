@@ -10,10 +10,6 @@ public class Player : MonoBehaviour
     public uint Vie;
 
     public float Speed;
-    public float Yvelocity;
-    public float Xvelocity;
-    public float Gravity;
-    public float GravityVelocity;
 
     public Vector2 PlayerVelocity;
     public bool ContactPlateforme;
@@ -37,10 +33,6 @@ public class Player : MonoBehaviour
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
 
-        Yvelocity = Gravity;
-        GravityVelocity = Gravity;
-        Xvelocity = 0;
-
         _animator.Play("AnimationTree");
 
     }
@@ -49,41 +41,25 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-
         if (_controls.buttonMenu)
             transform.position = _initialPosition;
 
-        PlayerVelocity = new Vector2(_controls.horizontalAxis * Speed + Xvelocity, Yvelocity);
-
-        if (Yvelocity > 0)
+        if (Vie == 0)
         {
-            Yvelocity += GravityVelocity * Time.deltaTime;
+            //Debug.Log("Fin du niveau.");
+            //PlayerVelocity = Vector2.zero;
+            //this.enabled = false;
         }
-        else
-        {
-            Yvelocity = GravityVelocity;
-        }
-
-        //if (Xvelocity > 0)
-        //{
-        //    Xvelocity -= 10*GravityVelocity * Time.deltaTime;
-        //}
-        //else
-        //{
-        //    Xvelocity = 0;
-        //}
 
     }
 
     private void FixedUpdate()
     {
-        if (Vie == 0)
-        {
-            Debug.Log("Fin du niveau.");
-            PlayerVelocity = Vector2.zero;
-            this.enabled = false;
-        }
+
+        PlayerVelocity = _rb.velocity;
+        PlayerVelocity.x = _controls.horizontalAxis * Speed;
         _rb.velocity = PlayerVelocity;
+
         _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
     }
@@ -102,11 +78,6 @@ public class Player : MonoBehaviour
             ContactPlateforme = false;
     }
 
-
-    public void ResetGravityPlayer()
-    {
-        GravityVelocity = Gravity;
-    }
 
     public void PrendreDamage(uint damage)
     {

@@ -10,13 +10,14 @@ public class PlateformeTapisRoulant : MonoBehaviour
     public void Start()
     {
         GetComponent<Animator>().SetInteger("sens", sens);
+        VitesseTapisRoulant *= sens;
     }
 
     public void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().Xvelocity = VitesseTapisRoulant * sens;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(VitesseTapisRoulant, 0), ForceMode2D.Force);
         }
     }
 
@@ -24,7 +25,6 @@ public class PlateformeTapisRoulant : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().Xvelocity = 0;
         }
     }
 }

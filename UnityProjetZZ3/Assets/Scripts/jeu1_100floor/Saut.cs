@@ -11,7 +11,6 @@ public class Saut : MonoBehaviour
     {
         _forceSaut = GetComponentInParent<PlateformeSaut>().ForceSaut;
 
-        Debug.Log($"force saut : {_forceSaut}");
     }
 
 
