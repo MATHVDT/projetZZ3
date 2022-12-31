@@ -155,8 +155,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6683256285022149670}
-  - component: {fileID: 6683256285022149691}
   - component: {fileID: 6683256285022149690}
+  - component: {fileID: 6683256285022149691}
   - component: {fileID: 6689690347915542181}
   m_Layer: 9
   m_Name: PlateformeSaut
@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6683256285022149670
 Transform:
   m_ObjectHideFlags: 0
@@ -183,22 +183,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6683256285022149691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683256285022149664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ac15947ccb859468aecfa1424b0af4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Repliee: {fileID: 6683256286650190819}
-  Ecrasee: {fileID: 6683256286879710693}
-  Depliee: {fileID: 6683256284961955079}
-  ForceSaut: 1
 --- !u!61 &6683256285022149690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,6 +209,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.1}
   m_EdgeRadius: 0
+--- !u!114 &6683256285022149691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683256285022149664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ac15947ccb859468aecfa1424b0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Repliee: {fileID: 6683256286650190819}
+  Ecrasee: {fileID: 6683256286879710693}
+  Depliee: {fileID: 6683256284961955079}
+  ForceSaut: 3.5
 --- !u!114 &6689690347915542181
 MonoBehaviour:
   m_ObjectHideFlags: 0

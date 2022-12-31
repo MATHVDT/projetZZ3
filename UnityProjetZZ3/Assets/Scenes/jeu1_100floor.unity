@@ -236,10 +236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &23103262
@@ -447,10 +443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &67060882
@@ -627,10 +619,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &270761190
@@ -1145,10 +1133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &604577040
@@ -2310,10 +2294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1101555368
@@ -2636,10 +2616,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1216619217
@@ -2847,10 +2823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1256710017
@@ -3027,10 +2999,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1260933562
@@ -3543,10 +3511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1549968846
@@ -3723,10 +3687,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1622159108
@@ -3914,10 +3874,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1746622382
@@ -4355,10 +4311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1975826207
@@ -4770,10 +4722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &1998027071
@@ -5034,10 +4982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vie: 0
   Speed: 0
-  Yvelocity: 0
-  Xvelocity: 0
-  Gravity: 0
-  GravityVelocity: 0
   PlayerVelocity: {x: 0, y: 0}
   ContactPlateforme: 0
 --- !u!61 &2136477327
@@ -5166,6 +5110,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2410440989167791313, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410440989167791313, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5232,11 +5184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.14
+      value: -2.18
       objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.91
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5326,11 +5278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759423360823149330, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.87
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2759423360823149330, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.39
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 2759423360823149330, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5367,6 +5319,10 @@ PrefabInstance:
     - target: {fileID: 2759423360823149334, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_Name
       value: PlateformeSimple
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759423360823149334, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
@@ -5545,7 +5501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7113543640245475763, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 7113543640245475763, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
       propertyPath: m_LocalPosition.z
