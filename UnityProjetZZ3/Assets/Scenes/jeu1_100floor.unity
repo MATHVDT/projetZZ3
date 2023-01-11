@@ -5184,7 +5184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.08
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 2410440989167791319, guid: 75a33a719b5d1ed488560b28fa35b68c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5218,6 +5218,10 @@ PrefabInstance:
     - target: {fileID: 2458526051308907857, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
       propertyPath: m_Name
       value: PlateformeTapisRoulant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458526051308907857, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2458526051308907869, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
       propertyPath: m_RootOrder
@@ -5282,7 +5286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759423360823149330, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.31
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 2759423360823149330, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5478,6 +5482,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6683256285022149691, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
+      propertyPath: ForceSaut
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683256285961413006, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
 --- !u!1001 &7113543639785426826
@@ -5535,6 +5547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlateformeTournante
       objectReference: {fileID: 0}
+    - target: {fileID: 7113543640245475772, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
 --- !u!1001 &8735641016731763463
@@ -5547,6 +5563,10 @@ PrefabInstance:
     - target: {fileID: 8735641017380328811, guid: 9ba8d4f2c23e7e54799c86b5706ebe41, type: 3}
       propertyPath: m_Name
       value: PlateformePics
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735641017380328811, guid: 9ba8d4f2c23e7e54799c86b5706ebe41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8735641017380328823, guid: 9ba8d4f2c23e7e54799c86b5706ebe41, type: 3}
       propertyPath: m_RootOrder
