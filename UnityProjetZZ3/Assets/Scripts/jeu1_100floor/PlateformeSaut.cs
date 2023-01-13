@@ -75,7 +75,7 @@ public class PlateformeSaut : MonoBehaviour
     {
         if (Saut && collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Saut");
+            //Debug.Log("Saut");
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
             Saut = false;
         }
