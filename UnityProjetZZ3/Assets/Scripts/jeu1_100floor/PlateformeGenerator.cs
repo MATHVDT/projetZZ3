@@ -17,6 +17,8 @@ public class PlateformeGenerator : MonoBehaviour
     public float xMinEcran;
     public float xMaxEcran;
 
+    private ContourCarte _contourCarte;
+
     public Vector3 DefaultPositionGeneration;
 
 
@@ -36,8 +38,10 @@ public class PlateformeGenerator : MonoBehaviour
 
         DefaultPositionGeneration = transform.position;
 
-        _hauteurPlayer = GameObject.Find("Player").GetComponent<SpriteRenderer>().size.y;
-        Debug.Log("hauteur player : " + _hauteurPlayer);
+        _hauteurPlayer = GameObject.Find("Player").GetComponent<SpriteRenderer>().bounds.size.y;
+        //Debug.Log("hauteur player : " + _hauteurPlayer);
+
+        _contourCarte = gameObject.GetComponentInChildren<ContourCarte>();
     }
 
     // Update is called once per frame
@@ -171,4 +175,13 @@ public class PlateformeGenerator : MonoBehaviour
         }
     }
 
+
+    private void GeneratePlateformeStart()
+    {
+        Vector3 posActivativation = DefaultPositionGeneration;
+
+
+
+
+    }
 }
