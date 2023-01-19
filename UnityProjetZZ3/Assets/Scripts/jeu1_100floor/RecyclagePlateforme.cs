@@ -20,12 +20,12 @@ public class RecyclagePlateforme : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("Plateforme"))
-        //{
-            Debug.Log($"trigger {collision.gameObject.name}");
+        if (collision.gameObject.CompareTag("Plateforme"))
+        {
+            //Debug.Log($"Sortie de la zone {collision.gameObject.name}");
             collision.gameObject.SetActive(false);
             generator.GeneratePlateforme();
-        //}
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

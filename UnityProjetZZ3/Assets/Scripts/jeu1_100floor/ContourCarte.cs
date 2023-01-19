@@ -28,10 +28,10 @@ public class ContourCarte : MonoBehaviour
         objectWidth = collider.size.x; // récupération de la largeur de l'objet
         objectHeight = collider.size.y; // récupération de la hauteur de l'objet
 
-        XMinContourCarte = (transform.position.x + collider.offset.x - (objectWidth / 2));
-        XMaxContourCarte = (transform.position.x + collider.offset.x + (objectWidth / 2));
+        XMinContourCarte = (transform.position.x + collider.offset.x - (objectWidth / 2)); // Récupération de la position gauche du contour de l'objet
+        XMaxContourCarte = (transform.position.x + collider.offset.x + (objectWidth / 2)); // Récupération de la position droite du contour de l'objet
 
-        YMinContourCarte = (transform.position.y + collider.offset.y - (objectHeight / 2));
-        YMaxContourCarte = (transform.position.y + collider.offset.y + (objectHeight / 2));
+        YMinContourCarte = (transform.position.y + collider.offset.y - (objectHeight / 2)); // Récupération de la position basse du contour de l'objet
+        YMaxContourCarte = (transform.position.y + collider.offset.y + (objectHeight / 2)); // Récupération de la position haute du contour de l'objet
     }
 }

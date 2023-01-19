@@ -12,7 +12,11 @@ public class PlateformeGenerator : MonoBehaviour
 
     private GameObject[][] _poolPlateforme;
 
-    public float _hauteurPlayer;
+    private float _hauteurPlayer = 0;
+    private float _hauteurMaxPlateforme = 0;
+    private float _ratioHauteurPlayer = 0.9f;
+    private float _ratioHauteurMaxPlateforme = 0.7f;
+
 
     public float xMinEcran;
     public float xMaxEcran;
@@ -39,9 +43,11 @@ public class PlateformeGenerator : MonoBehaviour
         DefaultPositionGeneration = transform.position;
 
         _hauteurPlayer = GameObject.Find("Player").GetComponent<SpriteRenderer>().bounds.size.y;
-        //Debug.Log("hauteur player : " + _hauteurPlayer);
 
-        _contourCarte = gameObject.GetComponentInChildren<ContourCarte>();
+        //var tmp = gameObject.GetComponentInParent<Transform>();
+        _contourCarte = GameObject.Find("ContourCarte").GetComponentInChildren<ContourCarte>();
+
+        GeneratePlateformeStart();
     }
 
     // Update is called once per frame
@@ -103,8 +109,21 @@ public class PlateformeGenerator : MonoBehaviour
         // Random x => fonction je sais plus quoi pour une bonne répartition
         positionGeneration.x = Random.Range(xMinEcran, xMaxEcran);
 
+        GeneratePlateforme(positionGeneration);
         // Le choix du type de plateforme doit dépendre de la fonction je sais plus quoi
-        ActiveFromPosition(ChoisirPlateformeInPool(), positionGeneration);
+        //ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), positionGeneration);
+    }
+    public void GeneratePlateforme(Vector3 positionGeneration)
+    {
+        // Choix de la plateforme
+        GameObject plateforme = ChoisirPlateformeInPool();
+
+        //Debug.Log($"Plateforme crée : {plateforme.name}");
+        // Modification du x
+        //float xRandom = 1.0f;
+        //positionGeneration = new Vector3(xRandom, positionGeneration.y, positionGeneration.z);
+
+        ActivationPlateformeFromPosition(plateforme, positionGeneration);
     }
 
     /// <summary>
@@ -142,7 +161,7 @@ public class PlateformeGenerator : MonoBehaviour
     /// </summary>
     /// <param name="plateforme">Plateforme desactivée.</param>
     /// <param name="positionActivation">Position de l'activation de la plateforme.</param>
-    private void ActiveFromPosition(GameObject plateforme, Vector3 positionActivation)
+    private void ActivationPlateformeFromPosition(GameObject plateforme, Vector3 positionActivation)
     {
         if (plateforme.activeSelf) // Check s'il est bien desactivé
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
@@ -173,15 +192,39 @@ public class PlateformeGenerator : MonoBehaviour
                 _poolPlateforme[p][k] = obj;
             }
         }
+
+        // Récupération de la hauteur Max d'un plateforme
+        foreach (var p in PlateformesPrefabs)
+        {
+            float hauteur = p.GetComponent<SpriteRenderer>().bounds.size.y;
+            _hauteurMaxPlateforme = Mathf.Max(_hauteurMaxPlateforme, hauteur);
+        }
     }
 
 
     private void GeneratePlateformeStart()
     {
+        const string nameObjectLimiteHauteEcran = "ZoneHautEcran";
         Vector3 posActivativation = DefaultPositionGeneration;
 
 
+        var collider = GameObject.Find(nameObjectLimiteHauteEcran).GetComponent<BoxCollider2D>();
 
+        float objectHeight = collider.size.y;        // récupération de la hauteur de l'objet
+
+        // Récupération de la position haute du contour de l'objet
+        float yMaxEcran = (collider.transform.position.y + collider.offset.y + (objectHeight / 2));
+
+        float h_y = yMaxEcran - DefaultPositionGeneration.y;
+        float hauteurPlateformeSpace = _ratioHauteurMaxPlateforme * _hauteurMaxPlateforme + _ratioHauteurPlayer* _hauteurPlayer;
+        float nBPlateformes = h_y / hauteurPlateformeSpace;
+
+
+        for (int i = 0; i < nBPlateformes; i++)
+        {
+            GeneratePlateforme(posActivativation);
+            posActivativation.y += hauteurPlateformeSpace;
+        }
 
     }
 }
