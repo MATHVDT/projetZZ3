@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 8735641017380328810}
   - component: {fileID: 1776834161}
   - component: {fileID: 8511814465586656394}
+  - component: {fileID: 4246341038602202159}
   m_Layer: 9
   m_Name: PlateformePics
   m_TagString: Plateforme
@@ -300,3 +301,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+--- !u!114 &4246341038602202159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735641017380328811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d62f9e4523f554d89bbba83d2701eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _largeurSprite: 0
+  _hauteurSprite: 0
+  _largeurCollider2D: 0
+  _hauteurCollider2D: 0
+  _boundsSprite:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _boundsCollider2D:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}

@@ -17,6 +17,7 @@ public class ContourCarte : MonoBehaviour
         SetCoordMinMaxContourCarte();
 
         var extremiteObject = GetComponent<ExtremitesObject>();
+        if (extremiteObject == null) { Debug.Log("Pas de script"); }
 
         Debug.Log($"XMinContourCarte:{XMinContourCarte} et ExtremiteObject:{extremiteObject.GetPositionLeftCollider2D()}");
         Debug.Log($"XMaxContourCarte:{XMaxContourCarte} et ExtremiteObject:{extremiteObject.GetPositionRightCollider2D()}");

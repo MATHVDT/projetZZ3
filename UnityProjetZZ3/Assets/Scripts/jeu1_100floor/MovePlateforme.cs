@@ -21,8 +21,8 @@ public class MovePlateforme : MonoBehaviour
         // On déplace l'objet en utilisant la vitesse et le temps écoulé depuis le dernier frame
         transform.position += Vector3.up * Speed * Time.deltaTime;
 
-        if(transform.position.y > _playerTransform.position.y)
-            DesactivateColliders2D();
+        //if(transform.position.y > _playerTransform.position.y)
+        //    DesactivateColliders2D();
 
     }
 

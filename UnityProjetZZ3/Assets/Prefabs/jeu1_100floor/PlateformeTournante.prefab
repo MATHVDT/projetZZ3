@@ -15,13 +15,14 @@ GameObject:
   - component: {fileID: 7113543640245475761}
   - component: {fileID: 7113543640245475760}
   - component: {fileID: 1541179454146216382}
+  - component: {fileID: 4545806906007294268}
   m_Layer: 9
   m_Name: PlateformeTournante
   m_TagString: Plateforme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7113543640245475763
 Transform:
   m_ObjectHideFlags: 0
@@ -183,3 +184,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+--- !u!114 &4545806906007294268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7113543640245475772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d62f9e4523f554d89bbba83d2701eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _largeurSprite: 0
+  _hauteurSprite: 0
+  _largeurCollider2D: 0
+  _hauteurCollider2D: 0
+  _boundsSprite:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _boundsCollider2D:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}

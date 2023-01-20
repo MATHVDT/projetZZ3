@@ -11,6 +11,8 @@ public class PlateformeGenerator : MonoBehaviour
     public GameObject[] PlateformesPrefabs = new GameObject[NB_PLATEFORMES];
 
     private GameObject[][] _poolPlateforme;
+    public GameObject _lastPlateforme = null;
+
 
     private float _hauteurPlayer = 0;
     private float _hauteurMaxPlateforme = 0;
@@ -22,6 +24,8 @@ public class PlateformeGenerator : MonoBehaviour
     public float xMaxEcran;
 
     private ContourCarte _contourCarte;
+
+    private ExtremitesObject _extremites;
 
     public Vector3 DefaultPositionGeneration;
 
@@ -45,7 +49,8 @@ public class PlateformeGenerator : MonoBehaviour
         _hauteurPlayer = GameObject.Find("Player").GetComponent<SpriteRenderer>().bounds.size.y;
 
         //var tmp = gameObject.GetComponentInParent<Transform>();
-        _contourCarte = GameObject.Find("ContourCarte").GetComponentInChildren<ContourCarte>();
+        //_contourCarte = GameObject.Find("ContourCarte").GetComponentInChildren<ContourCarte>();
+        _extremites = GameObject.Find("ContourCarte").GetComponent<ExtremitesObject>();
 
         GeneratePlateformeStart();
     }
@@ -104,24 +109,15 @@ public class PlateformeGenerator : MonoBehaviour
     /// </summary>
     public void GeneratePlateforme()
     {
-        Vector3 positionGeneration = DefaultPositionGeneration;
 
-        // Random x => fonction je sais plus quoi pour une bonne répartition
-        positionGeneration.x = Random.Range(xMinEcran, xMaxEcran);
-
-        GeneratePlateforme(positionGeneration);
-        // Le choix du type de plateforme doit dépendre de la fonction je sais plus quoi
-        //ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), positionGeneration);
-    }
-    public void GeneratePlateforme(Vector3 positionGeneration)
-    {
         // Choix de la plateforme
         GameObject plateforme = ChoisirPlateformeInPool();
 
-        //Debug.Log($"Plateforme crée : {plateforme.name}");
-        // Modification du x
-        //float xRandom = 1.0f;
-        //positionGeneration = new Vector3(xRandom, positionGeneration.y, positionGeneration.z);
+        // Récupération de la position d'activation
+        Vector3 positionGeneration = FindPostionActivation(plateforme);
+
+        // Random x => fonction je sais plus quoi pour une bonne répartition
+        //positionGeneration.x = Random.Range(xMinEcran, xMaxEcran);
 
         ActivationPlateformeFromPosition(plateforme, positionGeneration);
     }
@@ -138,7 +134,7 @@ public class PlateformeGenerator : MonoBehaviour
         while (nbPoolTest < NB_PLATEFORMES)
         {
             // Choix d'un type de plateforme
-            choixPlateformes = Random.Range(0, NB_PLATEFORMES);
+            choixPlateformes = Random.Range(1, NB_PLATEFORMES);
 
             // Pour toute les plateformes d'un certain type, dans un pool
             foreach (GameObject p in _poolPlateforme[choixPlateformes])
@@ -166,9 +162,35 @@ public class PlateformeGenerator : MonoBehaviour
         if (plateforme.activeSelf) // Check s'il est bien desactivé
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
 
+
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
+
+        _lastPlateforme = plateforme;
     }
+
+
+    private Vector3 FindPostionActivation(GameObject plateformeAActiver)
+    {
+        Vector3 positionActivation = Vector3.zero;
+
+        if (_lastPlateforme != null)
+        {
+            positionActivation = _lastPlateforme.GetComponent<ExtremitesObject>().GetPositionDownSpriteRenderer();
+
+            positionActivation += _hauteurPlayer * Vector3.down;
+
+            float hauteur = plateformeAActiver.GetComponent<ExtremitesObject>().GetHauteurSpriteRenderer();
+
+            positionActivation += hauteur / 2 * Vector3.down;
+
+
+        }
+
+        return positionActivation;
+    }
+
+
 
     /// <summary>
     /// Construit les pool des différentes plateformes. (Instatiation des différents éléments des pool)
@@ -187,6 +209,7 @@ public class PlateformeGenerator : MonoBehaviour
             for (int k = 0; k < POOL_SIZE; ++k)
             {
                 GameObject obj = Instantiate(PlateformesPrefabs[p], TargetInstanciation);
+                obj.name = obj.name + k.ToString();
                 obj.GetComponent<MovePlateforme>().Speed = _vitesseCarte;
                 obj.SetActive(false);
                 _poolPlateforme[p][k] = obj;
@@ -216,14 +239,20 @@ public class PlateformeGenerator : MonoBehaviour
         float yMaxEcran = (collider.transform.position.y + collider.offset.y + (objectHeight / 2));
 
         float h_y = yMaxEcran - DefaultPositionGeneration.y;
-        float hauteurPlateformeSpace = _ratioHauteurMaxPlateforme * _hauteurMaxPlateforme + _ratioHauteurPlayer* _hauteurPlayer;
-        float nBPlateformes = h_y / hauteurPlateformeSpace;
+        float hauteurPlateformeSpace = _ratioHauteurMaxPlateforme * _hauteurMaxPlateforme + _ratioHauteurPlayer * _hauteurPlayer;
+        //float nBPlateformes = h_y / hauteurPlateformeSpace;
+        float nBPlateformes = h_y / _hauteurPlayer;
 
+
+        ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), new Vector3(0, 4.5f, 0));
 
         for (int i = 0; i < nBPlateformes; i++)
         {
-            GeneratePlateforme(posActivativation);
-            posActivativation.y += hauteurPlateformeSpace;
+            var g = ChoisirPlateformeInPool();
+            posActivativation = FindPostionActivation(g);
+            ActivationPlateformeFromPosition(g, posActivativation);
+            //GeneratePlateforme();
+            //posActivativation.y += hauteurPlateformeSpace;
         }
 
     }
