@@ -14,8 +14,8 @@ public class PlateformeGenerator : MonoBehaviour
 
     private float _hauteurPlayer = 0;
     private float _hauteurMaxPlateforme = 0;
-    private float _ratioHauteurPlayer = 0.9f;
-    private float _ratioHauteurMaxPlateforme = 0.7f;
+    private float _ratioHauteurPlayer = 1.0f;
+    private float _ratioHauteurMaxPlateforme = 0.8f;
 
 
     public float xMinEcran;
