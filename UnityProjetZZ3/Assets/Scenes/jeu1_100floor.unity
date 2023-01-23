@@ -579,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &124286686
 Transform:
   m_ObjectHideFlags: 0
@@ -1018,8 +1018,9 @@ MonoBehaviour:
   - {fileID: 2458526051308907857, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
   - {fileID: 7113543640245475772, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
   _lastPlateforme: {fileID: 0}
-  xMinEcran: -3
-  xMaxEcran: 3.25
+  _hauteurPlayer: 0
+  _xMinEcran: 0
+  _xMaxEcran: 0
   DefaultPositionGeneration: {x: 0, y: 0, z: 0}
   Button_generate: 0
   TargetInstanciation: {fileID: 398396537}
@@ -2396,7 +2397,7 @@ GameObject:
   - component: {fileID: 1044917370}
   - component: {fileID: 1044917369}
   m_Layer: 10
-  m_Name: MurCarteDroite
+  m_Name: MurCarteGauche
   m_TagString: ContourCarte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5290,8 +5291,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2044519525}
   - component: {fileID: 2044519528}
-  - component: {fileID: 2044519526}
   - component: {fileID: 2044519527}
+  - component: {fileID: 2044519529}
   m_Layer: 10
   m_Name: ContourCarte
   m_TagString: ContourCarte
@@ -5318,22 +5319,6 @@ Transform:
   m_Father: {fileID: 898997236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2044519526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044519524}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e171b91bdcdeac4a99a35868b9e7ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  XMinContourCarte: 0
-  XMaxContourCarte: 0
-  YMinContourCarte: 0
-  YMaxContourCarte: 0
 --- !u!61 &2044519527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5382,6 +5367,21 @@ MonoBehaviour:
   _boundsCollider2D:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &2044519529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044519524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459c1d2c518e0f54496eea2d1ef65a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider2D: {fileID: 0}
+  _largeurCollider2D: 0
+  _hauteurCollider2D: 0
 --- !u!1 &2079050841
 GameObject:
   m_ObjectHideFlags: 0

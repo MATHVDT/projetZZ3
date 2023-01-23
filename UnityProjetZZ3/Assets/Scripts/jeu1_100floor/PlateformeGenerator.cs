@@ -14,18 +14,16 @@ public class PlateformeGenerator : MonoBehaviour
     public GameObject _lastPlateforme = null;
 
 
-    private float _hauteurPlayer = 0;
+    public float _hauteurPlayer = 0;
     private float _hauteurMaxPlateforme = 0;
     private float _ratioHauteurPlayer = 1.0f;
     private float _ratioHauteurMaxPlateforme = 0.8f;
 
 
-    public float xMinEcran;
-    public float xMaxEcran;
+    public float _xMinEcran;
+    public float _xMaxEcran;
 
-    private ContourCarte _contourCarte;
 
-    private ExtremitesObject _extremites;
 
     public Vector3 DefaultPositionGeneration;
 
@@ -46,11 +44,10 @@ public class PlateformeGenerator : MonoBehaviour
 
         DefaultPositionGeneration = transform.position;
 
-        _hauteurPlayer = GameObject.Find("Player").GetComponent<SpriteRenderer>().bounds.size.y;
+        _hauteurPlayer = 1.1f * GameObject.Find("Player").GetComponent<BoxCollider2D>().size.y * GameObject.Find("Player").transform.lossyScale.y;
 
-        //var tmp = gameObject.GetComponentInParent<Transform>();
-        //_contourCarte = GameObject.Find("ContourCarte").GetComponentInChildren<ContourCarte>();
-        _extremites = GameObject.Find("ContourCarte").GetComponent<ExtremitesObject>();
+        _xMinEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x;
+        _xMaxEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x;
 
         GeneratePlateformeStart();
     }
@@ -82,7 +79,7 @@ public class PlateformeGenerator : MonoBehaviour
     {
         int choixPlateformes = Random.Range(0, NB_PLATEFORMES);
         Vector3 targetPosition = TargetInstanciation.transform.position;
-        targetPosition.x = Random.Range(xMinEcran, xMaxEcran);
+        targetPosition.x = Random.Range(_xMinEcran, _xMaxEcran);
 
         bool objAvailable = false;
 
@@ -162,9 +159,20 @@ public class PlateformeGenerator : MonoBehaviour
         if (plateforme.activeSelf) // Check s'il est bien desactivé
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
 
-
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
+        plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageUpCollider2D();
+
+        //if (plateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x < _xMinEcran)
+        //{
+        //    Debug.Log("GetPositionLeftCollider2D().x < _xMinEcran");
+        //    plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageRightCollider2D();
+        //}
+
+        //if (plateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x > _xMaxEcran)
+        //{
+        //    plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageLeftCollider2D();
+        //}
 
         _lastPlateforme = plateforme;
     }
@@ -176,17 +184,14 @@ public class PlateformeGenerator : MonoBehaviour
 
         if (_lastPlateforme != null)
         {
-            positionActivation = _lastPlateforme.GetComponent<ExtremitePlateforme>().GetPositionDownCollider2D();
+            // Find Y position
+            Vector3 extremiteBasse = _lastPlateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionDownCollider2D();
+            positionActivation = extremiteBasse + _hauteurPlayer * Vector3.down;
 
-            positionActivation += _hauteurPlayer * Vector3.down;
-
-            float hauteur = plateformeAActiver.GetComponent<ExtremitePlateforme>().GetHauteurCollider2D();
-
-            positionActivation += hauteur / 2 * Vector3.down;
-
-
+            // Find X position
+            float x = Random.Range(_xMinEcran, _xMaxEcran);
+            positionActivation += x * Vector3.right;
         }
-
         return positionActivation;
     }
 
@@ -251,8 +256,6 @@ public class PlateformeGenerator : MonoBehaviour
             var g = ChoisirPlateformeInPool();
             posActivativation = FindPostionActivation(g);
             ActivationPlateformeFromPosition(g, posActivativation);
-            //GeneratePlateforme();
-            //posActivativation.y += hauteurPlateformeSpace;
         }
 
     }
