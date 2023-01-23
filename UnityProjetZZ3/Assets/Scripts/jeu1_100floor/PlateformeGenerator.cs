@@ -176,11 +176,11 @@ public class PlateformeGenerator : MonoBehaviour
 
         if (_lastPlateforme != null)
         {
-            positionActivation = _lastPlateforme.GetComponent<ExtremitesObject>().GetPositionDownSpriteRenderer();
+            positionActivation = _lastPlateforme.GetComponent<ExtremitePlateforme>().GetPositionDownCollider2D();
 
             positionActivation += _hauteurPlayer * Vector3.down;
 
-            float hauteur = plateformeAActiver.GetComponent<ExtremitesObject>().GetHauteurSpriteRenderer();
+            float hauteur = plateformeAActiver.GetComponent<ExtremitePlateforme>().GetHauteurCollider2D();
 
             positionActivation += hauteur / 2 * Vector3.down;
 
@@ -246,7 +246,7 @@ public class PlateformeGenerator : MonoBehaviour
 
         ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), new Vector3(0, 4.5f, 0));
 
-        for (int i = 0; i < nBPlateformes; i++)
+        for (int i = 0; i < 10; i++)
         {
             var g = ChoisirPlateformeInPool();
             posActivativation = FindPostionActivation(g);

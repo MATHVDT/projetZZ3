@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8735641017380328810}
   - component: {fileID: 1776834161}
   - component: {fileID: 8511814465586656394}
-  - component: {fileID: 4246341038602202159}
+  - component: {fileID: 1870687878}
   m_Layer: 9
   m_Name: PlateformePics
   m_TagString: Plateforme
@@ -162,7 +162,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.16000003, y: -1.72, z: 0}
   m_LocalScale: {x: 0.85, y: 0.85, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8735641017165418955}
   - {fileID: 8735641017019178833}
@@ -231,10 +231,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.17}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -245,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 0.5}
+  m_Size: {x: 1.6, y: 0.285}
   m_EdgeRadius: 0
 --- !u!50 &8735641017380328810
 Rigidbody2D:
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
---- !u!114 &4246341038602202159
+--- !u!114 &1870687878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,16 +310,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8735641017380328811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d62f9e4523f554d89bbba83d2701eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 459c1d2c518e0f54496eea2d1ef65a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _largeurSprite: 0
-  _hauteurSprite: 0
+  _collider2D: {fileID: 0}
   _largeurCollider2D: 0
   _hauteurCollider2D: 0
-  _boundsSprite:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  _boundsCollider2D:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}

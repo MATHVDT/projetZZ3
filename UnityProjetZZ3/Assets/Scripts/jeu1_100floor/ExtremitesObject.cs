@@ -50,15 +50,15 @@ public class ExtremitesObject : MonoBehaviour
             Debug.Log($"Pas de collider sur {transform.name}");
         }
 
-        Debug.Log($"name:{name}, GetPositionLeftSpriteRenderer:{GetPositionLeftSpriteRenderer()}");
-        Debug.Log($"name:{name}, GetPositionRightSpriteRenderer:{GetPositionRightSpriteRenderer()}");
-        Debug.Log($"name:{name}, GetPositionUpSpriteRenderer:{GetPositionUpSpriteRenderer()}");
-        Debug.Log($"name:{name}, GetPositionDownSpriteRenderer:{GetPositionDownSpriteRenderer()}");
+        //Debug.Log($"name:{name}, GetPositionLeftSpriteRenderer:{GetPositionLeftSpriteRenderer()}");
+        //Debug.Log($"name:{name}, GetPositionRightSpriteRenderer:{GetPositionRightSpriteRenderer()}");
+        //Debug.Log($"name:{name}, GetPositionUpSpriteRenderer:{GetPositionUpSpriteRenderer()}");
+        //Debug.Log($"name:{name}, GetPositionDownSpriteRenderer:{GetPositionDownSpriteRenderer()}");
 
-        Debug.Log($"name:{name}, GetPositionLeftCollider2D:{GetPositionLeftCollider2D()}");
-        Debug.Log($"name:{name}, GetPositionRightCollider2D:{GetPositionRightCollider2D()}");
-        Debug.Log($"name:{name}, GetPositionUpCollider2D:{GetPositionUpCollider2D()}");
-        Debug.Log($"name:{name}, GetPositionDownCollider2D:{GetPositionDownCollider2D()}");
+        //Debug.Log($"name:{name}, GetPositionLeftCollider2D:{GetPositionLeftCollider2D()}");
+        //Debug.Log($"name:{name}, GetPositionRightCollider2D:{GetPositionRightCollider2D()}");
+        //Debug.Log($"name:{name}, GetPositionUpCollider2D:{GetPositionUpCollider2D()}");
+        //Debug.Log($"name:{name}, GetPositionDownCollider2D:{GetPositionDownCollider2D()}");
 
     }
 
