@@ -72,6 +72,7 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
         pos = pos + transform.lossyScale.x * decalage;
         return pos;
     }
+    
     public Vector3 GetPositionRightCollider2D()
     {
         Vector3 pos = transform.position;
@@ -114,14 +115,14 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
 
     public void DecalagePositionToUpCollider2D()
     {
-        Vector3 posUpCollider = GetPositionUpCollider2D();
+        Vector3 posUpCollider = GetPositionDownCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
         transform.position += newPos;
     }
 
     public void DecalagePositionToDownCollider2D()
     {
-        Vector3 posUpCollider = GetPositionDownCollider2D();
+        Vector3 posUpCollider = GetPositionUpCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
         transform.position += newPos;
     }

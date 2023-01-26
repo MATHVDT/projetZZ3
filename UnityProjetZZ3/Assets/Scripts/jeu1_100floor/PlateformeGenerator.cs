@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,9 +19,6 @@ public class PlateformeGenerator : MonoBehaviour
     private float _xMinEcran;
     private float _xMaxEcran;
 
-
-    public bool Button_generate;
-
     public float _vitesseCarte;
 
     //float timeSinceLastCall = 0f; // variable pour stocker le temps écoulé depuis le dernier appel de la méthode
@@ -43,82 +39,42 @@ public class PlateformeGenerator : MonoBehaviour
 
         // Génération de la carte
         GeneratePlateformeStart();
+
+        // Set Player début game
+        SetCenterPlayerPlateformeAtStart();
     }
 
-    /*
-    void Update()
-    {
 
-        //timeSinceLastCall += Time.deltaTime; // ajoute le temps écoulé depuis le dernier frame à la variable timeSinceLastCall
-
-        //if (timeSinceLastCall >= callInterval) // si le temps écoulé est supérieur ou égal à l'intervalle de temps défini
-        //{
-        //    timeSinceLastCall -= callInterval; // soustraction de l'intervalle de temps au temps écoulé pour maintenir la synchronisation
-        //                                       //GenerateTest(); // appel de la méthode
-        //                                       //GeneratePlateforme();
-        //}
-    }
-    private void FixedUpdate()
-    {
-        if (Button_generate)
-        { // Btn de test pour generer une plateforme
-            GeneratePlateforme();
-            Button_generate = false;
-        }
-    }
-    public void GenerateTest()
-    {
-        int choixPlateformes = Random.Range(0, NB_PLATEFORMES);
-        Vector3 targetPosition = TargetInstanciation.transform.position;
-        targetPosition.x = Random.Range(_xMinEcran, _xMaxEcran);
-
-        bool objAvailable = false;
-
-        for (int k = 0; k < POOL_SIZE; ++k)
-        {
-            GameObject obj = _poolPlateforme[choixPlateformes][k];
-            if (!obj.activeInHierarchy)
-            {
-                objAvailable = true;
-                obj.transform.position = targetPosition;
-                obj.SetActive(true);
-                break;
-            }
-        }
-
-        if (!objAvailable)
-        {
-            Debug.Log($"Manque de plateforme type {choixPlateformes}.");
-        }
-    }
-    */
 
     /// <summary>
-    /// Génère une plateforme pour la continuité de la carte.
+    /// Génère une plateforme pour la continuité de la carte (ou à la position indiquée en paramètre).
+    /// Si le paramètre est non défini, alors il est null et un nouvelle position est calculée pour l'activation de la plateforme.
+    /// <paramref name="positionGeneration">Vector3 qui indique la position où l'on souhaite générer la plateforme.</param>
     /// </summary>
-    public void GeneratePlateforme()
+    public void GeneratePlateforme(Vector3? positionGeneration = null)
     {
 
         // Choix de la plateforme
-        GameObject plateforme = ChoisirPlateformeInPool();
+        GameObject plateforme = ChoisirPlateformeInPools();
 
         // Récupération de la position d'activation
-        Vector3 positionGeneration = FindPostionActivation(plateforme);
+        if (positionGeneration == null)
+            positionGeneration = FindPostionActivation(plateforme);
 
         // Random x => fonction je sais plus quoi pour une bonne répartition
         //positionGeneration.x = Random.Range(xMinEcran, xMaxEcran);
 
-        ActivationPlateformeFromPosition(plateforme, positionGeneration);
+        ActivationPlateformeFromPosition(plateforme, (Vector3)positionGeneration);
 
-
+        _lastPlateforme = plateforme; // Garder en mémoire la dernière plateforme activée
     }
 
     /// <summary>
-    /// Récupère une plateforme disponible dans les pool.
+    /// Récupère une plateforme disponible dans les pools.
     /// </summary>
     /// <returns>Plateforme disponible.</returns>
     /// <exception cref="System.Exception">Pas de plateformes disponibles.</exception>
-    private GameObject ChoisirPlateformeInPool()
+    private GameObject ChoisirPlateformeInPools()
     {
         int choixPlateformes; int nbPoolTest = 0;
 
@@ -126,21 +82,37 @@ public class PlateformeGenerator : MonoBehaviour
         {
             // Choix d'un type de plateforme
             choixPlateformes = Random.Range(1, NB_PLATEFORMES);
+            var plateforme = ChoisirPlateformeInPool(choixPlateformes);
 
-            // Pour toute les plateformes d'un certain type, dans un pool
-            foreach (GameObject p in _poolPlateforme[choixPlateformes])
+            if (plateforme != null)
             {
-                // Check si la plateforme est déjà active
-                if (!p.activeInHierarchy)
-                { // Plateforme disponible
-                    return p;
-                }
+                return plateforme;
             }
 
             Debug.LogWarning($"Plus de plateformes de type {choixPlateformes} disponibles.");
             ++nbPoolTest;
         }
         throw new System.Exception("Aucune plateformes disponibles dans les pool.");
+    }
+
+    /// <summary>
+    /// Récupère une plateforme disponible dans un pool spécifique.
+    /// </summary>
+    /// <param name="poolIndice">Indice du pool choisi.</param>
+    /// <returns>Une plateforme pas activé, ou null.</returns>
+    private GameObject ChoisirPlateformeInPool(int poolIndice)
+    {
+        // Pour toute les plateformes d'un certain type, dans un pool
+        foreach (GameObject p in _poolPlateforme[poolIndice])
+        {
+            // Check si la plateforme est déjà active
+            if (!p.activeInHierarchy)
+            { // Plateforme disponible
+                return p;
+            }
+        }
+        Debug.LogWarning($"Plus de plateformes de type {poolIndice} disponibles.");
+        return null;
     }
 
     /// <summary>
@@ -157,11 +129,9 @@ public class PlateformeGenerator : MonoBehaviour
 
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
-        extremiteCollider.DecalagePositionToUpCollider2D();
+        extremiteCollider.DecalagePositionToDownCollider2D();
 
         RecentrerPlateforme(extremiteCollider);
-
-        _lastPlateforme = plateforme; // Garder en mémoire la dernière plateforme activée
     }
 
     /// <summary>
@@ -228,7 +198,7 @@ public class PlateformeGenerator : MonoBehaviour
             // Instantiation de toutes les plateformes d'un type
             for (int k = 0; k < POOL_SIZE; ++k)
             {
-                GameObject obj = Instantiate(PlateformesPrefabs[p]);
+                GameObject obj = Instantiate(PlateformesPrefabs[p], transform);
                 obj.name = obj.name + k.ToString();
                 obj.GetComponent<MovePlateforme>().Speed = _vitesseCarte;
                 obj.SetActive(false);
@@ -252,16 +222,72 @@ public class PlateformeGenerator : MonoBehaviour
         float nbPlateformesEcran = hauteurCarte / _distanceEntrePlateformes;
 
         // Activation de la première plateforme en haut de l'écran
-        ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), positionZoneHautEcran);
+        GeneratePlateforme(positionGeneration: positionZoneHautEcran);
 
         Vector3 posActivativation = Vector3.zero;
 
         // Activation des autres plateformes pour remplir la hauteur de l'écran
         for (int i = 0; i < nbPlateformesEcran; i++)
         {
-            var g = ChoisirPlateformeInPool();
-            posActivativation = FindPostionActivation(g);
-            ActivationPlateformeFromPosition(g, posActivativation);
+            GeneratePlateforme();
         }
     }
+
+    /// <summary>
+    /// Mise en place d'une plateforme simple au centre de l'écran avec le Player dessus.
+    /// </summary>
+    private void SetCenterPlayerPlateformeAtStart()
+    {
+        var transformPlayer = GameObject.Find("Player").transform;
+        var transformContourCarte = GameObject.Find("ContourCarte").transform;
+
+        //var listPlateforme = _poolPlateforme[0]
+        GameObject plateformeCenter = FindPlateformeAtCenter(transformContourCarte);
+        if (plateformeCenter == null)
+        {
+            Debug.LogWarning("Pas de plateforme au centre de l'écran trouvée");
+        }
+
+        // Re-centrage de la plateforme au centre de l'écran sur les x.
+        float xCenter = (_xMaxEcran + _xMinEcran) / 2;
+        var centerPlateformPosition = new Vector3(xCenter, plateformeCenter.transform.position.y, plateformeCenter.transform.position.z);
+
+        // Changement par une plateforme simple
+        plateformeCenter.SetActive(false); // Desactivation de l'ancienne
+        plateformeCenter = ChoisirPlateformeInPool(2);  // Récupéraction d'un plateforme simple disponible
+        ActivationPlateformeFromPosition(plateformeCenter, centerPlateformPosition); // Activation de la plateforme simple
+
+        // Récupération du haut de la plateforme
+        Vector3 positionHautColliderPlateforme = plateformeCenter.GetComponent<ExtremiteBoxCollider2D>().GetPositionUpCollider2D();
+
+        // Ajustement du player au dessus de la plateforme au centre de l'écran
+        transformPlayer.position = positionHautColliderPlateforme;
+        transformPlayer.GetComponent<ExtremiteBoxCollider2D>().DecalagePositionToUpCollider2D();
+    }
+
+    /// <summary>
+    /// Récupère la plateforme activé la plus proche en Y du transform donné.
+    /// </summary>
+    /// <param name="transformContourCarte">Transform du centre de la Map</param>
+    /// <returns>Transform de la plateforme la plus proche (en Y) du transform donnée.</returns>
+    private GameObject FindPlateformeAtCenter(Transform transformContourCarte)
+    {
+        // Dans chaque pool de plateforme
+        foreach (var pool in _poolPlateforme)
+        {
+            // Sur chaque plateforme
+            foreach (var plateforme in pool)
+            {
+                if (!plateforme.activeInHierarchy)
+                    continue; // Plateforme pas activée
+
+                if (Mathf.Abs(plateforme.transform.position.y - transformContourCarte.position.y) < _distanceEntrePlateformes)
+                { // La plateforme est la plus au centre
+                    return plateforme;
+                }
+            }
+        }
+        return null;
+    }
+
 }
