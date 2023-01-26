@@ -117,6 +117,8 @@ public class PlateformeGenerator : MonoBehaviour
         //positionGeneration.x = Random.Range(xMinEcran, xMaxEcran);
 
         ActivationPlateformeFromPosition(plateforme, positionGeneration);
+
+
     }
 
     /// <summary>
@@ -159,19 +161,28 @@ public class PlateformeGenerator : MonoBehaviour
         if (plateforme.activeSelf) // Check s'il est bien desactivé
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
 
+        var extremiteCollider = plateforme.GetComponent<ExtremiteBoxCollider2D>();
+
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
-        plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageUpCollider2D();
+        extremiteCollider.DecalagePositionToUpCollider2D();
 
-        //if (plateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x < _xMinEcran)
-        //{
-        //    Debug.Log("GetPositionLeftCollider2D().x < _xMinEcran");
-        //    plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageRightCollider2D();
-        //}
+        int i = 0;
+        while (i < 100 && extremiteCollider.GetPositionLeftCollider2D().x < _xMinEcran)
+        {
+            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionLeftCollider2D().x} < {_xMinEcran} et i:{i++}");
+            extremiteCollider.DecalagePositionToRightCollider2D();
+        }
+        i = 0;
+        while (i < 100 && extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
+        {
+            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionRightCollider2D().x} > {_xMaxEcran} et i:{i++}");
+            extremiteCollider.DecalagePositionToLeftCollider2D();
+        }
 
-        //if (plateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x > _xMaxEcran)
+        //if (extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
         //{
-        //    plateforme.GetComponent<ExtremiteBoxCollider2D>().DecalageLeftCollider2D();
+        //    extremiteCollider.DecalageLeftCollider2D();
         //}
 
         _lastPlateforme = plateforme;
@@ -190,6 +201,7 @@ public class PlateformeGenerator : MonoBehaviour
 
             // Find X position
             float x = Random.Range(_xMinEcran, _xMaxEcran);
+            Debug.Log($"val rand x : {x}");
             positionActivation += x * Vector3.right;
         }
         return positionActivation;

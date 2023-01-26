@@ -9,12 +9,16 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
     public float _largeurCollider2D = 0;
     public float _hauteurCollider2D = 0;
 
+
+    public bool DecalageLeft = false;
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateValueCollider2D();
     }
 
+   
     void UpdateValueCollider2D()
     {
         _collider2D = GetComponent<BoxCollider2D>();
@@ -39,6 +43,12 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
 
     public void Update()
     {
+
+        //if (DecalageLeft)
+        //{
+        //    DecalageLeft = false;
+        //    DecalageLeftCollider2D();
+        //}
         //Debug.Log($"{name}: GetPositionLeftCollider2D:{GetPositionLeftCollider2D()}");
         //Debug.Log($"{name}: GetPositionRightCollider2D:{GetPositionRightCollider2D()}");
         //Debug.Log($"{name}: GetPositionUpCollider2D:{GetPositionUpCollider2D()}");
@@ -49,7 +59,7 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
     public Vector2 GetSizeCollider2D() { return _collider2D.size; }
 
     public float GetLargeurCollider2D() { return _collider2D.size.x; }
-    
+
     public float GetHauteurCollider2D() { return _collider2D.size.y; }
 
 
@@ -88,28 +98,28 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
 
 
     /* -------------------------- Decalage Collider 2D -------------------------- */
-    public void DecalageLeftCollider2D()
+    public void DecalagePositionToRightCollider2D()
     {
         Vector3 posUpCollider = GetPositionLeftCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
         transform.position += newPos;
     }
 
-    public void DecalageRightCollider2D()
+    public void DecalagePositionToLeftCollider2D()
     {
         Vector3 posUpCollider = GetPositionRightCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
         transform.position += newPos;
     }
 
-    public void DecalageUpCollider2D()
+    public void DecalagePositionToUpCollider2D()
     {
         Vector3 posUpCollider = GetPositionUpCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
         transform.position += newPos;
     }
 
-    public void DecalageDownCollider2D()
+    public void DecalagePositionToDownCollider2D()
     {
         Vector3 posUpCollider = GetPositionDownCollider2D();
         Vector3 newPos = transform.position - posUpCollider;
