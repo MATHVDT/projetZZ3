@@ -9,16 +9,12 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
     public float _largeurCollider2D = 0;
     public float _hauteurCollider2D = 0;
 
-
-    public bool DecalageLeft = false;
-
     // Start is called before the first frame update
     void Start()
     {
         UpdateValueCollider2D();
     }
 
-   
     void UpdateValueCollider2D()
     {
         _collider2D = GetComponent<BoxCollider2D>();
@@ -35,7 +31,6 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
         }
     }
 
-
     private void OnEnable()
     {
         UpdateValueCollider2D();
@@ -43,12 +38,6 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
 
     public void Update()
     {
-
-        //if (DecalageLeft)
-        //{
-        //    DecalageLeft = false;
-        //    DecalageLeftCollider2D();
-        //}
         //Debug.Log($"{name}: GetPositionLeftCollider2D:{GetPositionLeftCollider2D()}");
         //Debug.Log($"{name}: GetPositionRightCollider2D:{GetPositionRightCollider2D()}");
         //Debug.Log($"{name}: GetPositionUpCollider2D:{GetPositionUpCollider2D()}");

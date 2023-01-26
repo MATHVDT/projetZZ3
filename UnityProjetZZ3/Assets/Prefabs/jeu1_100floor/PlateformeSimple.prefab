@@ -163,3 +163,4 @@ MonoBehaviour:
   _collider2D: {fileID: 0}
   _largeurCollider2D: 0
   _hauteurCollider2D: 0
+  DecalageLeft: 0

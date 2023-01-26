@@ -82,6 +82,7 @@ public class PlateformeGenerator : MonoBehaviour
         {
             // Choix d'un type de plateforme
             choixPlateformes = Random.Range(1, NB_PLATEFORMES);
+            choixPlateformes = 2; // TODO a changer
             var plateforme = ChoisirPlateformeInPool(choixPlateformes);
 
             if (plateforme != null)
@@ -219,8 +220,9 @@ public class PlateformeGenerator : MonoBehaviour
         var positionZoneBasEcran = GameObject.Find(nameObjectBasEcran).GetComponent<Transform>().position;
 
         float hauteurCarte = positionZoneHautEcran.y - positionZoneBasEcran.y;
-        float nbPlateformesEcran = hauteurCarte / _distanceEntrePlateformes;
-
+        Debug.Log($"hauteurCarte:{hauteurCarte}, positionZoneHautEcran.y:{positionZoneHautEcran.y}, positionZoneBasEcran.y:{positionZoneBasEcran.y}");
+        float nbPlateformesEcran = hauteurCarte / 1.5f / _distanceEntrePlateformes;
+        Debug.Log($"_distanceEntrePlateformes:{_distanceEntrePlateformes}, Nb de plateforme : {nbPlateformesEcran}");
         // Activation de la première plateforme en haut de l'écran
         GeneratePlateforme(positionGeneration: positionZoneHautEcran);
 
