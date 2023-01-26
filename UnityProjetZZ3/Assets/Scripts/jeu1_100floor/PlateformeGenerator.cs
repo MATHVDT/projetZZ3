@@ -11,30 +11,22 @@ public class PlateformeGenerator : MonoBehaviour
     public GameObject[] PlateformesPrefabs = new GameObject[NB_PLATEFORMES];
 
     private GameObject[][] _poolPlateforme;
-    public GameObject _lastPlateforme = null;
+    private GameObject _lastPlateforme = null;
 
+    private float _hauteurPlayer = 0;
+    private float _distanceEntrePlateformes = 0;
+    public float _ratioHauteurPlayer = 1.0f;
 
-    public float _hauteurPlayer = 0;
-    private float _hauteurMaxPlateforme = 0;
-    private float _ratioHauteurPlayer = 1.0f;
-    private float _ratioHauteurMaxPlateforme = 0.8f;
-
-
-    public float _xMinEcran;
-    public float _xMaxEcran;
-
-
-
-    public Vector3 DefaultPositionGeneration;
+    private float _xMinEcran;
+    private float _xMaxEcran;
 
 
     public bool Button_generate;
 
-    public Transform TargetInstanciation;
     public float _vitesseCarte;
 
-    float timeSinceLastCall = 0f; // variable pour stocker le temps écoulé depuis le dernier appel de la méthode
-    float callInterval = 2f; // intervalle de temps entre chaque appel de la méthode, ici 1 seconde
+    //float timeSinceLastCall = 0f; // variable pour stocker le temps écoulé depuis le dernier appel de la méthode
+    //float callInterval = 2f; // intervalle de temps entre chaque appel de la méthode, ici 1 seconde
 
     // Start is called before the first frame update
     void Start()
@@ -42,30 +34,30 @@ public class PlateformeGenerator : MonoBehaviour
         // Set up les pool des plateformes
         CreatePlateformesPool();
 
-        DefaultPositionGeneration = transform.position;
-
-        _hauteurPlayer = 1.1f * GameObject.Find("Player").GetComponent<BoxCollider2D>().size.y * GameObject.Find("Player").transform.lossyScale.y;
+        // Récupération de valeur
+        _hauteurPlayer = GameObject.Find("Player").GetComponent<BoxCollider2D>().size.y * GameObject.Find("Player").transform.lossyScale.y;
+        _distanceEntrePlateformes = _ratioHauteurPlayer * _hauteurPlayer;
 
         _xMinEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x;
         _xMaxEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x;
 
+        // Génération de la carte
         GeneratePlateformeStart();
     }
 
-    // Update is called once per frame
+    /*
     void Update()
     {
 
-        timeSinceLastCall += Time.deltaTime; // ajoute le temps écoulé depuis le dernier frame à la variable timeSinceLastCall
+        //timeSinceLastCall += Time.deltaTime; // ajoute le temps écoulé depuis le dernier frame à la variable timeSinceLastCall
 
-        if (timeSinceLastCall >= callInterval) // si le temps écoulé est supérieur ou égal à l'intervalle de temps défini
-        {
-            timeSinceLastCall -= callInterval; // soustraction de l'intervalle de temps au temps écoulé pour maintenir la synchronisation
-                                               //GenerateTest(); // appel de la méthode
-                                               //GeneratePlateforme();
-        }
+        //if (timeSinceLastCall >= callInterval) // si le temps écoulé est supérieur ou égal à l'intervalle de temps défini
+        //{
+        //    timeSinceLastCall -= callInterval; // soustraction de l'intervalle de temps au temps écoulé pour maintenir la synchronisation
+        //                                       //GenerateTest(); // appel de la méthode
+        //                                       //GeneratePlateforme();
+        //}
     }
-
     private void FixedUpdate()
     {
         if (Button_generate)
@@ -74,7 +66,6 @@ public class PlateformeGenerator : MonoBehaviour
             Button_generate = false;
         }
     }
-
     public void GenerateTest()
     {
         int choixPlateformes = Random.Range(0, NB_PLATEFORMES);
@@ -100,6 +91,7 @@ public class PlateformeGenerator : MonoBehaviour
             Debug.Log($"Manque de plateforme type {choixPlateformes}.");
         }
     }
+    */
 
     /// <summary>
     /// Génère une plateforme pour la continuité de la carte.
@@ -167,28 +159,41 @@ public class PlateformeGenerator : MonoBehaviour
         plateforme.SetActive(true);
         extremiteCollider.DecalagePositionToUpCollider2D();
 
-        int i = 0;
-        while (i < 100 && extremiteCollider.GetPositionLeftCollider2D().x < _xMinEcran)
+        RecentrerPlateforme(extremiteCollider);
+
+        _lastPlateforme = plateforme; // Garder en mémoire la dernière plateforme activée
+    }
+
+    /// <summary>
+    /// Recentre les plateformes pour qu'elles soient toujours dans la carte et ne débordent pas.
+    /// </summary>
+    /// <param name="extremiteCollider">Script qui de checker les positions des extremités de la plateforme.</param>
+    private void RecentrerPlateforme(ExtremiteBoxCollider2D extremiteCollider)
+    {
+        int varDeSecu = 0;
+        while (varDeSecu < 100 && extremiteCollider.GetPositionLeftCollider2D().x < _xMinEcran)
         {
-            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionLeftCollider2D().x} < {_xMinEcran} et i:{i++}");
+            ++varDeSecu;
+            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionLeftCollider2D().x} < {_xMinEcran} et varDeSecu:{varDeSecu}");
             extremiteCollider.DecalagePositionToRightCollider2D();
         }
-        i = 0;
-        while (i < 100 && extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
+        varDeSecu = 0;
+        while (varDeSecu < 100 && extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
         {
-            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionRightCollider2D().x} > {_xMaxEcran} et i:{i++}");
+            ++varDeSecu;
+            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionRightCollider2D().x} > {_xMaxEcran} et varDeSecu:{varDeSecu}");
             extremiteCollider.DecalagePositionToLeftCollider2D();
         }
-
-        //if (extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
-        //{
-        //    extremiteCollider.DecalageLeftCollider2D();
-        //}
-
-        _lastPlateforme = plateforme;
     }
 
 
+    /// <summary>
+    /// Calcul la position où activer la prochaine plateforme.
+    /// En y : l'extremité basse du collider de la précedente plateforme.
+    /// En x : une valeur aléatoire entre les bornes min et max de la carte.
+    /// </summary>
+    /// <param name="plateformeAActiver"></param>
+    /// <returns></returns>
     private Vector3 FindPostionActivation(GameObject plateformeAActiver)
     {
         Vector3 positionActivation = Vector3.zero;
@@ -197,17 +202,15 @@ public class PlateformeGenerator : MonoBehaviour
         {
             // Find Y position
             Vector3 extremiteBasse = _lastPlateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionDownCollider2D();
-            positionActivation = extremiteBasse + _hauteurPlayer * Vector3.down;
+            positionActivation = extremiteBasse + _distanceEntrePlateformes * Vector3.down;
 
             // Find X position
             float x = Random.Range(_xMinEcran, _xMaxEcran);
-            Debug.Log($"val rand x : {x}");
+            // TODO : fonction qui utilise un aléatoire suivant une génération bien
             positionActivation += x * Vector3.right;
         }
         return positionActivation;
     }
-
-
 
     /// <summary>
     /// Construit les pool des différentes plateformes. (Instatiation des différents éléments des pool)
@@ -225,50 +228,40 @@ public class PlateformeGenerator : MonoBehaviour
             // Instantiation de toutes les plateformes d'un type
             for (int k = 0; k < POOL_SIZE; ++k)
             {
-                GameObject obj = Instantiate(PlateformesPrefabs[p], TargetInstanciation);
+                GameObject obj = Instantiate(PlateformesPrefabs[p]);
                 obj.name = obj.name + k.ToString();
                 obj.GetComponent<MovePlateforme>().Speed = _vitesseCarte;
                 obj.SetActive(false);
                 _poolPlateforme[p][k] = obj;
             }
         }
-
-        // Récupération de la hauteur Max d'un plateforme
-        foreach (var p in PlateformesPrefabs)
-        {
-            float hauteur = p.GetComponent<SpriteRenderer>().bounds.size.y;
-            _hauteurMaxPlateforme = Mathf.Max(_hauteurMaxPlateforme, hauteur);
-        }
     }
 
-
+    /// <summary>
+    /// Génération des plateformes sur toutes la hauteur de la carte au start.
+    /// </summary>
     private void GeneratePlateformeStart()
     {
-        const string nameObjectLimiteHauteEcran = "ZoneHautEcran";
-        Vector3 posActivativation = DefaultPositionGeneration;
+        const string nameObjectHautEcran = "ZoneHautEcran";
+        const string nameObjectBasEcran = "ZoneBasEcran";
 
+        var positionZoneHautEcran = GameObject.Find(nameObjectHautEcran).GetComponent<Transform>().position;
+        var positionZoneBasEcran = GameObject.Find(nameObjectBasEcran).GetComponent<Transform>().position;
 
-        var collider = GameObject.Find(nameObjectLimiteHauteEcran).GetComponent<BoxCollider2D>();
+        float hauteurCarte = positionZoneHautEcran.y - positionZoneBasEcran.y;
+        float nbPlateformesEcran = hauteurCarte / _distanceEntrePlateformes;
 
-        float objectHeight = collider.size.y;        // récupération de la hauteur de l'objet
+        // Activation de la première plateforme en haut de l'écran
+        ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), positionZoneHautEcran);
 
-        // Récupération de la position haute du contour de l'objet
-        float yMaxEcran = (collider.transform.position.y + collider.offset.y + (objectHeight / 2));
+        Vector3 posActivativation = Vector3.zero;
 
-        float h_y = yMaxEcran - DefaultPositionGeneration.y;
-        float hauteurPlateformeSpace = _ratioHauteurMaxPlateforme * _hauteurMaxPlateforme + _ratioHauteurPlayer * _hauteurPlayer;
-        //float nBPlateformes = h_y / hauteurPlateformeSpace;
-        float nBPlateformes = h_y / _hauteurPlayer;
-
-
-        ActivationPlateformeFromPosition(ChoisirPlateformeInPool(), new Vector3(0, 4.5f, 0));
-
-        for (int i = 0; i < 10; i++)
+        // Activation des autres plateformes pour remplir la hauteur de l'écran
+        for (int i = 0; i < nbPlateformesEcran; i++)
         {
             var g = ChoisirPlateformeInPool();
             posActivativation = FindPostionActivation(g);
             ActivationPlateformeFromPosition(g, posActivativation);
         }
-
     }
 }
