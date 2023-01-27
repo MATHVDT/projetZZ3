@@ -42,7 +42,12 @@ public class Player : MonoBehaviour
     {
 
         if (_controls.buttonMenu)
+        {
             transform.position = _initialPosition;
+            PlayerVelocity = _rb.velocity;
+            PlayerVelocity.y = 0;
+            _rb.velocity = PlayerVelocity;
+        }
 
         if (Vie == 0)
         {
