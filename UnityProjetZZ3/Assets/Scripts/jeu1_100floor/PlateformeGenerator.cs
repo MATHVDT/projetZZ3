@@ -83,7 +83,7 @@ public class PlateformeGenerator : MonoBehaviour
             // Choix d'un type de plateforme
             choixPlateformes = Random.Range(1, NB_PLATEFORMES);
 
-            //choixPlateformes = 2; // TODO a changer
+            choixPlateformes = 1; // TODO a changer
 
             var plateforme = ChoisirPlateformeInPool(choixPlateformes);
 

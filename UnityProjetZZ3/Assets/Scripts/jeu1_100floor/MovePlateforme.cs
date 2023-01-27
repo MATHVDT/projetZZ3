@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class MovePlateforme : MonoBehaviour
@@ -8,16 +9,20 @@ public class MovePlateforme : MonoBehaviour
     public float Speed;
 
     private Collider2D[] _colliders2D;
+    private Rigidbody2D _rb;
+    private ExtremiteBoxCollider2D _extremiteBoxCollider2D;
+
     private Transform _playerTransform;
     private Collider2D _playerCollider2D;
-    private ExtremiteBoxCollider2D _extremiteBoxCollider2D;
 
     public void Start()
     {
         _colliders2D = GetComponentsInChildren<Collider2D>();
+        _extremiteBoxCollider2D = GetComponent<ExtremiteBoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
+
         _playerTransform = GameObject.Find("Player").transform;
         _playerCollider2D = GameObject.Find("Player").GetComponent<Collider2D>();
-        _extremiteBoxCollider2D = GetComponent<ExtremiteBoxCollider2D>();
     }
 
     public void OnEnable()
@@ -34,6 +39,13 @@ public class MovePlateforme : MonoBehaviour
         //    DesactivateColliders2D();
 
     }
+
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = Vector2.up * Speed; ;
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,6 +73,8 @@ public class MovePlateforme : MonoBehaviour
 
     private void ActivateColliders2D()
     {
+        if(_colliders2D== null) return; 
+
         foreach (var collider in _colliders2D)
         {
             collider.isTrigger = false;

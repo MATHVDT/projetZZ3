@@ -12,9 +12,11 @@ public class PlateformeSaut : MonoBehaviour
     //public GameObject Depliee;
 
     public float ForceSaut;
-    public bool Saut;
+    public bool Saut; // Variable activé dans l'animation
 
-    public Animator animator;
+    private Animator _animator;
+    private Rigidbody2D _rb;
+
     private Rigidbody2D _rbPlayer;
 
 
@@ -22,52 +24,16 @@ public class PlateformeSaut : MonoBehaviour
     void Start()
     {
         Saut = false;
-        //Repliee = GameObject.Find("PlateformeSautRepliee");
-        //Ecrasee = GameObject.Find("PlateformeSautEcrasee");
-        //Depliee = GameObject.Find("PlateformeSautDepliee");
 
-        //Repliee.SetActive(true);
-        //Ecrasee.SetActive(false);
-        //Depliee.SetActive(false);
-
-        animator = GetComponent<Animator>();
-
+        _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
     }
-
-    //private IEnumerator OnTriggerEnter2D(Collider2D collision)
-    //{
-
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    { // Player sur la plateforme
-    //        float timePause = 0.25f;
-
-    //        Repliee.SetActive(false);
-    //        Ecrasee.SetActive(true);
-    //        //Debug.Log("Plateforme ecrasée");
-
-    //        yield return new WaitForSeconds(timePause / 2);
-
-    //        collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
-    //        Ecrasee.SetActive(false);
-    //        Depliee.SetActive(true);
-    //        //Debug.Log("Plateforme depliée");
-
-    //        yield return new WaitForSeconds(timePause);
-
-    //        Depliee.SetActive(false);
-    //        Repliee.SetActive(true);
-    //        //Debug.Log("Plateforme repliée");
-
-    //    }
-    //}
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            animator.SetTrigger("AnimationPlay");
-            //_rbPlayer = collision.gameObject.GetComponent<Rigidbody2D>();
-            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
+            _animator.SetTrigger("AnimationPlay");
         }
     }
 
@@ -75,14 +41,15 @@ public class PlateformeSaut : MonoBehaviour
     {
         if (Saut && collision.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("Saut");
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
+            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            Vector2 velocity = _rb.velocity;
+
+            // Calcul de la force a appliquée en fonction de la velocity
+            Vector2 force = new Vector2(0, ForceSaut + Mathf.Abs(velocity.y));
+            playerRb.AddForce(force, ForceMode2D.Impulse); // Applique la force
+
+            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
             Saut = false;
         }
-    }
-
-    public void AddForceJumpPlayer()
-    {
-        //_rbPlayer.AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
     }
 }
