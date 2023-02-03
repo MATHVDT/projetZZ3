@@ -1898,9 +1898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459c1d2c518e0f54496eea2d1ef65a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2D: {fileID: 0}
-  _largeurCollider2D: 0
-  _hauteurCollider2D: 0
 --- !u!1 &905245807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,8 +2904,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToVieInc: 1
-  TimeToScoreInc: 8
+  TimeToScoreInc: 2
   _score: 0
+  _scoreTime: 0
+  _vieTime: 0
+  _currentTime: 0
 --- !u!1 &1498306982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,14 +4902,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333927237}
     m_Modifications:
-    - target: {fileID: 6929673348446985277, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929673348446985277, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6929673349556784019, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4957,10 +4949,6 @@ PrefabInstance:
     - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
       propertyPath: m_Name
       value: Carte
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
