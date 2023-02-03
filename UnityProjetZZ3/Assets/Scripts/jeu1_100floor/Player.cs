@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private SetValueControls _controls;
+    private BarreVie _barreVie;
 
     //private Transform transform;
     private Vector3 _initialPosition;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         _initialPosition = transform.position;
         _rb = GetComponent<Rigidbody2D>();
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
+        _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
         _animator = GetComponent<Animator>();
 
         Vie = VIE_MAX;
@@ -87,5 +89,6 @@ public class Player : MonoBehaviour
     public void PrendreDamage(uint damage)
     {
         Vie -= (damage < Vie ? damage : Vie);
+        _barreVie.ChangeVie(Vie);
     }
 }
