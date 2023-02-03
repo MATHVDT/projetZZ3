@@ -4,45 +4,26 @@ using UnityEngine;
 
 public class ExtremiteBoxCollider2D : MonoBehaviour
 {
-    public BoxCollider2D _collider2D;
-
-    public float _largeurCollider2D = 0;
-    public float _hauteurCollider2D = 0;
+    private BoxCollider2D _collider2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        UpdateValueCollider2D();
+        GetCollider2D();
     }
 
-    void UpdateValueCollider2D()
+    void GetCollider2D()
     {
         _collider2D = GetComponent<BoxCollider2D>();
 
-        if (_collider2D)
-        {
-            //Debug.Log($"BoxCollider found pour {name}");
-            _largeurCollider2D = _collider2D.size.x;
-            _hauteurCollider2D = _collider2D.size.y;
-        }
-        else
-        {
-            Debug.Log($"Pas de box collider sur l'objet {name}.");
-        }
+        if (!_collider2D) { Debug.Log($"Pas de box collider sur l'objet {name}."); }
     }
 
     private void OnEnable()
     {
-        UpdateValueCollider2D();
+        GetCollider2D();
     }
 
-    public void Update()
-    {
-        //Debug.Log($"{name}: GetPositionLeftCollider2D:{GetPositionLeftCollider2D()}");
-        //Debug.Log($"{name}: GetPositionRightCollider2D:{GetPositionRightCollider2D()}");
-        //Debug.Log($"{name}: GetPositionUpCollider2D:{GetPositionUpCollider2D()}");
-        //Debug.Log($"{name}: GetPositionDownCollider2D:{GetPositionDownCollider2D()}");
-    }
 
     /* ---------------------------- Get Size Collider 2D ------------------------ */
     public Vector2 GetSizeCollider2D() { return _collider2D.size; }
@@ -61,7 +42,7 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
         pos = pos + transform.lossyScale.x * decalage;
         return pos;
     }
-    
+
     public Vector3 GetPositionRightCollider2D()
     {
         Vector3 pos = transform.position;
@@ -90,29 +71,25 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
     /* -------------------------- Decalage Collider 2D -------------------------- */
     public void DecalagePositionToRightCollider2D()
     {
-        Vector3 posUpCollider = GetPositionLeftCollider2D();
-        Vector3 newPos = transform.position - posUpCollider;
+        Vector3 newPos = transform.position - GetPositionLeftCollider2D();
         transform.position += newPos;
     }
 
     public void DecalagePositionToLeftCollider2D()
     {
-        Vector3 posUpCollider = GetPositionRightCollider2D();
-        Vector3 newPos = transform.position - posUpCollider;
+        Vector3 newPos = transform.position - GetPositionRightCollider2D();
         transform.position += newPos;
     }
 
     public void DecalagePositionToUpCollider2D()
     {
-        Vector3 posUpCollider = GetPositionDownCollider2D();
-        Vector3 newPos = transform.position - posUpCollider;
+        Vector3 newPos = transform.position - GetPositionDownCollider2D();
         transform.position += newPos;
     }
 
     public void DecalagePositionToDownCollider2D()
     {
-        Vector3 posUpCollider = GetPositionUpCollider2D();
-        Vector3 newPos = transform.position - posUpCollider;
+        Vector3 newPos = transform.position - GetPositionUpCollider2D();
         transform.position += newPos;
     }
 }

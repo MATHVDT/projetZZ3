@@ -13,17 +13,10 @@ public class ContourCarte : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         SetCoordMinMaxContourCarte();
 
         var extremiteObject = GetComponent<ExtremitesObject>();
-        if (extremiteObject == null) { Debug.Log("Pas de script"); }
-
-        Debug.Log($"XMinContourCarte:{XMinContourCarte} et ExtremiteObject:{extremiteObject.GetPositionLeftCollider2D()}");
-        Debug.Log($"XMaxContourCarte:{XMaxContourCarte} et ExtremiteObject:{extremiteObject.GetPositionRightCollider2D()}");
-
-        Debug.Log($"YMinContourCarte:{YMinContourCarte} et ExtremiteObject:{extremiteObject.GetPositionDownCollider2D()}");
-        Debug.Log($"YMaxContourCarte:{YMaxContourCarte} et ExtremiteObject:{extremiteObject.GetPositionUpCollider2D()}");
+        if (extremiteObject == null) { Debug.Log("Pas de script ExtremitesObject"); }
     }
 
 

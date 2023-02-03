@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     public readonly uint VIE_MAX = 10;
     public uint Vie;
-
     public float Speed;
 
     public Vector2 PlayerVelocity;
@@ -16,25 +15,30 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Animator _animator;
+
     private SetValueControls _controls;
     private BarreVie _barreVie;
 
     //private Transform transform;
-    private Vector3 _initialPosition;
+    private Vector3 _initialPosition; // TODO à dégager
 
     // Start is called before the first frame update
     void Start()
     {
-        _initialPosition = transform.position;
+        _initialPosition = transform.position; // TODO à dégager
+
+        // Récupération des components
         _rb = GetComponent<Rigidbody2D>();
-        _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
-        _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
         _animator = GetComponent<Animator>();
 
+        // Récupération des scripts liés à l'UI
+        _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
+        _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
+
+        // Initialisation des variables
         Vie = VIE_MAX;
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
-
         _animator.Play("AnimationTree");
 
     }
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // TODO Bouton de DEBUG 
         if (_controls.buttonMenu)
         {
             transform.position = _initialPosition;
@@ -51,6 +55,7 @@ public class Player : MonoBehaviour
             _rb.velocity = PlayerVelocity;
         }
 
+        // Gestion de la FIN du niveau
         if (Vie == 0)
         {
             //Debug.Log("Fin du niveau.");
@@ -62,11 +67,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Calcul du déplacement du player 
+        PlayerVelocity = _rb.velocity; // Récupération de la force appliquée sur le player
+        PlayerVelocity.x = _controls.horizontalAxis * Speed; // Calcul de la nouvelle composante X de cette force en fonction des controls
+        _rb.velocity = PlayerVelocity; // Application de la force sur le player
 
-        PlayerVelocity = _rb.velocity;
-        PlayerVelocity.x = _controls.horizontalAxis * Speed;
-        _rb.velocity = PlayerVelocity;
-
+        // Lancement des animations du player en fonction de son déplacement
         _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
     }
@@ -85,10 +91,27 @@ public class Player : MonoBehaviour
             ContactPlateforme = false;
     }
 
-
+    /// <summary>
+    /// Réduit la vie d'une certaine valeur et actualise l'affichage de la barre de vie.
+    /// </summary>
+    /// <param name="damage">Valeur de damage recu.</param>
     public void PrendreDamage(uint damage)
     {
         Vie -= (damage < Vie ? damage : Vie);
-        _barreVie.ChangeVie(Vie);
+        _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
+    }
+
+    /// <summary>
+    /// Augmente la vie d'une certaine valeur (1 par défaut) et actualise l'affichage de la barre de vie.
+    /// La Vie de doit pas dépasser la constante VIE_MAX.
+    /// </summary>
+    /// <param name="pt">Valeur de la régénération de la vie, 1 par défaut.</param>
+    public void RegenerationVie(uint pt = 1)
+    {
+        if (Vie < VIE_MAX)
+        {
+            Vie += pt;
+            _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
+        }
     }
 }

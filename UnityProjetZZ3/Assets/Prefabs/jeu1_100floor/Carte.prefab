@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929673348412322818}
-  - component: {fileID: 6929673348412322831}
   - component: {fileID: 6929673348412322816}
   - component: {fileID: 6929673348412322830}
   m_Layer: 10
@@ -38,28 +37,6 @@ Transform:
   m_Father: {fileID: 6929673349556784019}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6929673348412322831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929673348412322819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d62f9e4523f554d89bbba83d2701eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _largeurSpriteRenderer: 0
-  _hauteurSpriteRenderer: 0
-  _largeurCollider2D: 0
-  _hauteurCollider2D: 0
-  _boundsSpriteRenderer:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  _boundsCollider2D:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!61 &6929673348412322816
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -101,7 +78,6 @@ MonoBehaviour:
   _collider2D: {fileID: 0}
   _largeurCollider2D: 0
   _hauteurCollider2D: 0
-  DecalageLeft: 0
 --- !u!1 &6929673348446985278
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929673348446985278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1246,7 +1222,6 @@ MonoBehaviour:
   - {fileID: 2759423360823149334, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
   - {fileID: 2458526051308907857, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
   - {fileID: 7113543640245475772, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
-  _ratioHauteurPlayer: 1.1
   _vitesseCarte: 0.6
 --- !u!1 &6929673350157681277
 GameObject:

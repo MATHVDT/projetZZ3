@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
+/// <summary>
+/// Script de déplacement d'une plateforme à vitesse constante vers le haut.
+/// Gère la collision par le dessous de la plateforme, 
+/// en rendant trigger tous les colliders2D pour ne pas bloquer le player.
+/// </summary>
 public class MovePlateforme : MonoBehaviour
 {
     // Vitesse de déplacement de l'objet (en unités par seconde)
@@ -10,40 +15,23 @@ public class MovePlateforme : MonoBehaviour
 
     private Collider2D[] _colliders2D;
     private Rigidbody2D _rb;
-    private ExtremiteBoxCollider2D _extremiteBoxCollider2D;
-
-    private Transform _playerTransform;
-    private Collider2D _playerCollider2D;
 
     public void Start()
     {
         _colliders2D = GetComponentsInChildren<Collider2D>();
-        _extremiteBoxCollider2D = GetComponent<ExtremiteBoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
-
-        _playerTransform = GameObject.Find("Player").transform;
-        _playerCollider2D = GameObject.Find("Player").GetComponent<Collider2D>();
     }
 
     public void OnEnable()
     {
-        ActivateColliders2D();
+        // A l'activation de la plateforme, réactivation de tous ses colliders
+        ActivateTriggerOnAllColliders2D();
     }
-
-    void Update()
-    {
-        // On déplace l'objet en utilisant la vitesse et le temps écoulé depuis le dernier frame
-        transform.position += Vector3.up * Speed * Time.deltaTime;
-
-        //if (transform.position.y > _playerTransform.position.y)
-        //    DesactivateColliders2D();
-
-    }
-
 
     private void FixedUpdate()
     {
-        _rb.velocity = Vector2.up * Speed; ;
+        // Déplacement de la plateforme vers le haut
+        _rb.velocity = Vector2.up * Speed;
     }
 
 
@@ -51,29 +39,34 @@ public class MovePlateforme : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            if (_extremiteBoxCollider2D == null)
-                return; // Pas encore récupéré
+            //if (_extremiteBoxCollider2D == null) // Pour éviter les soucis au start (avec des colliders pas encore récup)
+            //    return; // Pas encore récupéré
 
-            float yHautCollider2D = _extremiteBoxCollider2D.GetPositionUpCollider2D().y;
-            float yPlayerBasCollider2D = collision.gameObject.GetComponent<ExtremiteBoxCollider2D>().GetPositionDownCollider2D().y;
-
+            // Rend la plateforme traversable dès qu'elle passe au dessus du player
             if (transform.position.y > collision.transform.position.y)
-                DesactivateColliders2D();
+                DesactivateTriggerOnAllColliders2D();
         }
     }
 
-
-    private void DesactivateColliders2D()
+    /// <summary>
+    /// Désactive la propritété Trigger de tous les colliders 2D de la plateforme.
+    /// </summary>
+    private void DesactivateTriggerOnAllColliders2D()
     {
+        if (_colliders2D == null) return;
+
         foreach (var collider in _colliders2D)
         {
             collider.isTrigger = true;
         }
     }
 
-    private void ActivateColliders2D()
+    /// <summary>
+    /// Active la propritété Trigger de tous les colliders 2D de la plateforme.
+    /// </summary>
+    private void ActivateTriggerOnAllColliders2D()
     {
-        if(_colliders2D== null) return; 
+        if (_colliders2D == null) return;
 
         foreach (var collider in _colliders2D)
         {
