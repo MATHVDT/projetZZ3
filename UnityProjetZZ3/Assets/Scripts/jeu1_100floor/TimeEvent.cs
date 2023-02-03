@@ -39,7 +39,6 @@ public class TimeEvent : MonoBehaviour
         {
             _scoreTime = _currentTime;
             _score++;
-            Debug.Log(_score);
         }
 
         // Régénère le player suivant un chrono
