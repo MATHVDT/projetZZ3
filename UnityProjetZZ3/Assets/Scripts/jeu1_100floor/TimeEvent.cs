@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -23,10 +24,13 @@ public class TimeEvent : MonoBehaviour
 
     public float _currentTime;
 
+    public AffichageScore _affichageScore;
+
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        _affichageScore = GameObject.Find("[UI] Score").GetComponent<AffichageScore>();
     }
 
     // Update is called once per frame
@@ -38,15 +42,15 @@ public class TimeEvent : MonoBehaviour
         if (_currentTime - _scoreTime > TimeToScoreInc)
         {
             _scoreTime = _currentTime;
-            _score++;
+            _affichageScore.ChangerScore(++_score); // Envoie le nouveau score à l'affichage
         }
 
         // Régénère le player suivant un chrono
         if (_currentTime - _vieTime > TimeToVieInc)
         {
             _vieTime = _currentTime;
-            _player.RegenerationVie();
+            _player.RegenerationVie(); 
         }
-
     }
+
 }
