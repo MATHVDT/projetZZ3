@@ -33,6 +33,7 @@ public class PlateformeSaut : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("enter on collision avec player");
             _animator.SetTrigger("AnimationPlay");
         }
     }
