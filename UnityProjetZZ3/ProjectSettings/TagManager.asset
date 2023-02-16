@@ -19,7 +19,7 @@ TagManager:
   - Plateforme
   - ContourCarte
   - Decor
-  - 
+  - Background
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 923722793
     locked: 0
   - name: Decor
     uniqueID: 2679462909

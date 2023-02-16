@@ -23,6 +23,8 @@ public class PlateformeGenerator : MonoBehaviour
     private float _xMinEcran;
     private float _xMaxEcran;
 
+    // La vitesse doit dépendre de la taille de l'écran
+    // Multiplier par Jeu.transform.scale
     public float _vitesseCarte; // Vitesse de montée des plateformes
 
     // Start is called before the first frame update
@@ -130,6 +132,8 @@ public class PlateformeGenerator : MonoBehaviour
 
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
+        // Re set la vitesse des plateformes (normalement pas utile)
+        plateforme.GetComponent<MovePlateforme>().Speed = _vitesseCarte;
 
         // Décalage plateforme sur les Y pour qu'avec la plateforme précédente,
         // la distance entre les 2 soient bien _distanceEntrePlateformes (en tenant compte des BoxCollider)
