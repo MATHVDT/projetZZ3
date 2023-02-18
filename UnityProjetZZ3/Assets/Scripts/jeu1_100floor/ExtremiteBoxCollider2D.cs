@@ -5,16 +5,21 @@ using UnityEngine;
 public class ExtremiteBoxCollider2D : MonoBehaviour
 {
     private BoxCollider2D _collider2D;
+    private EdgeCollider2D _edgeCollider2D;
+    private SpriteRenderer _spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         GetCollider2D();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     void GetCollider2D()
     {
         _collider2D = GetComponent<BoxCollider2D>();
+        _edgeCollider2D = GetComponent<EdgeCollider2D>();
 
         if (!_collider2D) { Debug.Log($"Pas de box collider sur l'objet {name}."); }
     }
@@ -41,6 +46,7 @@ public class ExtremiteBoxCollider2D : MonoBehaviour
         Vector3 decalage = new Vector3(_collider2D.offset.x - _collider2D.size.x / 2, 0, 0);
         pos = pos + transform.lossyScale.x * decalage;
         return pos;
+
     }
 
     public Vector3 GetPositionRightCollider2D()

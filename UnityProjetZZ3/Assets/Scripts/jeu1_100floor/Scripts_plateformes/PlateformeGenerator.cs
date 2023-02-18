@@ -40,6 +40,10 @@ public class PlateformeGenerator : MonoBehaviour
         _xMinEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x;
         _xMaxEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x;
 
+        // TODO A degager
+        //_xMinEcran = -2.68f;
+        //_xMaxEcran = 3.0f;
+
         // Génération de la carte
         GeneratePlateformeStart();
 
@@ -129,6 +133,7 @@ public class PlateformeGenerator : MonoBehaviour
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
 
         var extremiteCollider = plateforme.GetComponent<ExtremiteBoxCollider2D>();
+        var extremiteSpriteRenderer = plateforme.GetComponent<ExtremiteSpriteRenderer>();
 
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
@@ -140,32 +145,32 @@ public class PlateformeGenerator : MonoBehaviour
         extremiteCollider.DecalagePositionToDownCollider2D();
 
         // Recentre la plateforme pour qu'elle ne sorte pas de l'écran
-        RecentrerPlateforme(extremiteCollider);
+        RecentrerPlateforme(extremiteSpriteRenderer);
     }
 
     /// <summary>
     /// Recentre les plateformes pour qu'elles soient toujours dans la carte et ne débordent pas.
     /// </summary>
     /// <param name="extremiteCollider">Script qui de checker les positions des extremités de la plateforme.</param>
-    private void RecentrerPlateforme(ExtremiteBoxCollider2D extremiteCollider)
+    private void RecentrerPlateforme(ExtremiteSpriteRenderer extremiteSpriteRenderer)
     {
         int varDeSecu = 0; // Sert à vérifier que l'on reste pas dans la boucle
 
         // Tant que le coté gauche du collider est en dehors de la map, on décale la plateforme vers la droite
-        while (varDeSecu < 100 && extremiteCollider.GetPositionLeftCollider2D().x < _xMinEcran)
+        while (varDeSecu < 100 && extremiteSpriteRenderer.GetPositionLeftSpriteRenderer().x < _xMinEcran)
         {
-            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionLeftCollider2D().x} < {_xMinEcran} et varDeSecu:{varDeSecu}");
+            //Debug.Log($"{plateforme.name} {extremiteSpriteRenderer.GetPositionLeftSpriteRenderer().x} < {_xMinEcran} et varDeSecu:{varDeSecu}");
             ++varDeSecu;
-            extremiteCollider.DecalagePositionToRightCollider2D();
+            extremiteSpriteRenderer.DecalagePositionToRightSpriteRenderer();
         }
 
         varDeSecu = 0;
         // Tant que le coté droit du collider est en dehors de la map, on décale la plateforme vers la gauche
-        while (varDeSecu < 100 && extremiteCollider.GetPositionRightCollider2D().x > _xMaxEcran)
+        while (varDeSecu < 100 && extremiteSpriteRenderer.GetPositionRightSpriteRenderer().x > _xMaxEcran)
         {
-            //Debug.Log($"{plateforme.name} {extremiteCollider.GetPositionRightCollider2D().x} > {_xMaxEcran} et varDeSecu:{varDeSecu}");
+            //Debug.Log($"{plateforme.name} {extremiteSpriteRenderer.GetPositionRightSpriteRenderer().x} > {_xMaxEcran} et varDeSecu:{varDeSecu}");
             ++varDeSecu;
-            extremiteCollider.DecalagePositionToLeftCollider2D();
+            extremiteSpriteRenderer.DecalagePositionToLeftSpriteRenderer();
         }
     }
 
