@@ -39,7 +39,13 @@ public class PlateformeTournante : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            // Lance l'animation : 
+            // - change le sprite
+            // - rend le collider triggered
             animator.SetTrigger("AnimationPlay");
+
+            var rbPlayer = collision.gameObject.GetComponent<Rigidbody2D>();
+            rbPlayer.velocity = Vector3.zero;
         }
     }
 }
