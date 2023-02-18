@@ -192,9 +192,129 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5196592040103371958, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040103371958, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040103371958, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040103371958, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040381644273, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040381644273, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040381644273, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040381644273, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040542404864, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040542404864, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040542404864, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040542404864, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592040929180501, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041336508972, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041336508972, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041336508972, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041336508972, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041379963074, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041379963074, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041379963074, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041379963074, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041924396660, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041924396660, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041924396660, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041924396660, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041966067983, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041966067983, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041966067983, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196592041966067983, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 7997129114361549808, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
       propertyPath: m_Name
       value: '[UI] SpriteContourConsole'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997129114361549815, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
       objectReference: {fileID: 0}
     - target: {fileID: 8879368923465214159, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
       propertyPath: m_Name
