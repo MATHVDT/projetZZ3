@@ -56,7 +56,7 @@ public class MovePlateforme : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player")) 
         {
@@ -73,7 +73,7 @@ public class MovePlateforme : MonoBehaviour
     /// </summary>
     public void PlateformeTraversable()
     {
-        _edgeCollider2D.enabled = false;
+        _boxCollider2D.enabled = false;
     }
 
     /// <summary>
@@ -81,6 +81,6 @@ public class MovePlateforme : MonoBehaviour
     /// </summary>
     public void PlateformeNonTraversable()
     {
-        _edgeCollider2D.enabled = true;
+        _boxCollider2D.enabled = true;
     }
 }

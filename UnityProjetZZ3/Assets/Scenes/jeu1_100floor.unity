@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &124286686
 Transform:
   m_ObjectHideFlags: 0
@@ -6086,18 +6086,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6683256285022149691, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
-      propertyPath: ForceSaut
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7395738780124583041, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7395738780124583041, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a4f4f7645af8fa45ae992ffe4c182c9, type: 3}
 --- !u!1001 &6929673350403280999
@@ -6187,7 +6175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7113543640245475763, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.791
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: 7113543640245475763, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
       propertyPath: m_LocalPosition.y
