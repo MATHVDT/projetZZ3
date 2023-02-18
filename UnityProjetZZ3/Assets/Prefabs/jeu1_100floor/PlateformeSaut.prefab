@@ -127,8 +127,8 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.01}
+  m_EdgeRadius: 0.05
   m_Points:
   - {x: -0.8, y: 0}
   - {x: 0.8, y: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ac15947ccb859468aecfa1424b0af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceSaut: 6
+  ForceSaut: 6.5
   Saut: 0
 --- !u!82 &8825109926015441039
 AudioSource:

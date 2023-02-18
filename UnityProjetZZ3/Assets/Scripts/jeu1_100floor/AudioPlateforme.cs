@@ -6,7 +6,6 @@ using UnityEngine;
 public class AudioPlateforme : MonoBehaviour
 {
     private AudioSource _audioSource;
-    public float eps = 1e-3f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +20,4 @@ public class AudioPlateforme : MonoBehaviour
             _audioSource.Play();
         }
     }
-
-
 }
