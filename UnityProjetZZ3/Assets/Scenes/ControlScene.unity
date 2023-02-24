@@ -384,9 +384,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 66098699458990171, guid: 2554b9c6dbbfb884a8d09a175729be5c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 5
+    - target: {fileID: 2742505290906646782, guid: 2554b9c6dbbfb884a8d09a175729be5c, type: 3}
+      propertyPath: m_Name
+      value: '[UI] ContourConsole'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2554b9c6dbbfb884a8d09a175729be5c, type: 3}
