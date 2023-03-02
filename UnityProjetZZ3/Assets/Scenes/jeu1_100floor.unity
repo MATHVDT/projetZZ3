@@ -5158,7 +5158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726310126280684242, guid: 8c57c7abc33a0d44b942c84ce739b539, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3726310126280684242, guid: 8c57c7abc33a0d44b942c84ce739b539, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5676,18 +5676,6 @@ PrefabInstance:
     - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
       propertyPath: m_Name
       value: Carte
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929673350129671185, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929673350129671197, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
-      propertyPath: _vitesseCarte
-      value: 0.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
