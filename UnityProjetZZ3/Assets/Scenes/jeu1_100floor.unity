@@ -4509,7 +4509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1856267856
 Transform:
   m_ObjectHideFlags: 0
@@ -5921,6 +5921,54 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 104080949741390544, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949741390544, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949741390544, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949741390544, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949914793505, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949914793505, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949914793505, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080949914793505, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080950172086118, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080950172086118, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080950172086118, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080950172086118, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 104080950479400920, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -6016,6 +6064,74 @@ PrefabInstance:
     - target: {fileID: 104080950479400927, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080950479400927, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951047138066, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951047138066, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951047138066, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951047138066, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951069612540, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951069612540, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951069612540, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951069612540, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951501253343, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951501253343, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951501253343, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951501253343, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951593209252, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951593209252, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951593209252, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 104080951593209252, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2851983010569115680, guid: 4ca3c36f656d86f4cae48a75b88f1ae8, type: 3}
       propertyPath: m_IsActive

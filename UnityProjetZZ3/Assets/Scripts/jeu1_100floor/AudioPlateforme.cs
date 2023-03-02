@@ -8,7 +8,7 @@ public class AudioPlateforme : MonoBehaviour
     private AudioSource _audioSource;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
     }

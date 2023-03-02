@@ -12,26 +12,24 @@ public class RecyclagePlateforme : MonoBehaviour
         generator = GameObject.Find("GenerateurPlateforme").GetComponent<PlateformeGenerator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Plateforme"))
+        if (collision.GetType() == typeof(EdgeCollider2D))
         {
-            //Debug.Log($"Sortie de la zone {collision.gameObject.name}");
-            collision.gameObject.SetActive(false);
-            generator.GeneratePlateforme();
+            if (collision.gameObject.CompareTag("Plateforme"))
+            {
+                //Debug.Log($"Sortie de la zone {collision.gameObject.name}");
+                collision.gameObject.SetActive(false);
+                generator.GeneratePlateforme();
+            }
         }
+
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log($"collision {collision.gameObject.name}");
-        collision.gameObject.SetActive(false);
-        generator.GeneratePlateforme();
-    }
+    //public void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log($"collision {collision.gameObject.name}");
+    //    collision.gameObject.SetActive(false);
+    //    generator.GeneratePlateforme();
+    //}
 }
