@@ -29,7 +29,7 @@ public class Launcher : MonoBehaviour
         SceneManager.LoadScene(indexScene);
     }
 
-    public void ChargerMenu()
+    public void ChargerLauncherGame()
     {
         ChargerScene(0);
     }
