@@ -40,6 +40,10 @@ public class PlateformeGenerator : MonoBehaviour
         _xMinEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x;
         _xMaxEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x;
 
+        // TODO A degager
+        //_xMinEcran = -2.68f;
+        //_xMaxEcran = 3.0f;
+
         // Génération de la carte
         GeneratePlateformeStart();
 
@@ -129,6 +133,7 @@ public class PlateformeGenerator : MonoBehaviour
             Debug.LogWarning($"Le GameObject {plateforme.name} est déjà activée et est situé à la position {plateforme.transform.position}.");
 
         var extremiteCollider = plateforme.GetComponent<ExtremiteBoxCollider2D>();
+        //var extremiteSpriteRenderer = plateforme.GetComponent<ExtremiteSpriteRenderer>();
 
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);

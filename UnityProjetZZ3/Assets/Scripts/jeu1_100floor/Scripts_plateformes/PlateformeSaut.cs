@@ -21,36 +21,35 @@ public class PlateformeSaut : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Saut = false;
 
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+
+        _rbPlayer = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("enter on collision avec player");
-            _animator.SetTrigger("AnimationPlay");
+            if (!Saut)
+                _animator.SetTrigger("AnimationPlay");
         }
     }
 
-    public void OnCollisionStay2D(Collision2D collision)
+    public void AddForceSautPlayer()
     {
-        if (Saut && collision.gameObject.CompareTag("Player"))
-        {
-            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 velocity = _rb.velocity;
+        Vector2 velocity = _rbPlayer.velocity;
 
-            // Calcul de la force a appliquée en fonction de la velocity
-            Vector2 force = new Vector2(0, ForceSaut + Mathf.Abs(velocity.y));
-            playerRb.AddForce(force, ForceMode2D.Impulse); // Applique la force
+        // Calcul de la force a appliquée en fonction de la velocity
+        Vector2 relativeVelocity = _rbPlayer.velocity - _rb.velocity;
+        float jumpForceFactor = 1.0f; // ajustez ce facteur selon vos besoins
+        float jumpForce = ForceSaut + relativeVelocity.y * jumpForceFactor;
 
-            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, ForceSaut), ForceMode2D.Impulse);
-            Saut = false;
-        }
+        Vector2 force = new Vector2(0, jumpForce + Mathf.Abs(velocity.y));
+        _rbPlayer.AddForce(force, ForceMode2D.Impulse); // Applique la force
     }
 }

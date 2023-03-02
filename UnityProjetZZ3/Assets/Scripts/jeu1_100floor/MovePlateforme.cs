@@ -12,19 +12,23 @@ public class MovePlateforme : MonoBehaviour
     // Vitesse de déplacement de l'objet (en unités par seconde)
     public float Speed;
 
-    private Collider2D[] _colliders2D;
+    private EdgeCollider2D _edgeCollider2D;
+    private BoxCollider2D _boxCollider2D;
+
     private Rigidbody2D _rb;
 
-    public void Start()
+    public void Awake()
     {
-        _colliders2D = GetComponentsInChildren<Collider2D>();
+        _edgeCollider2D = GetComponent<EdgeCollider2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
+
         _rb = GetComponent<Rigidbody2D>();
     }
 
     public void OnEnable()
     {
         // A l'activation de la plateforme, réactivation de tous ses colliders
-        ActivateTriggerOnAllColliders2D();
+        PlateformeNonTraversable();
     }
 
     private void FixedUpdate()
@@ -42,34 +46,41 @@ public class MovePlateforme : MonoBehaviour
             //    return; // Pas encore récupéré
 
             // Rend la plateforme traversable dès qu'elle passe au dessus du player
-            if (transform.position.y > collision.transform.position.y)
-                DesactivateTriggerOnAllColliders2D();
+            // Collision avec le pLayer par en dessous la plateforme
+            //if (transform.position.y > collision.transform.position.y)
+            //    DesactivateTriggerOnAllColliders2D();
+
+            if (collision.contacts[0].normal.y > 0.5f)
+                PlateformeTraversable();
+
         }
     }
 
-    /// <summary>
-    /// Désactive la propritété Trigger de tous les colliders 2D de la plateforme.
-    /// </summary>
-    private void DesactivateTriggerOnAllColliders2D()
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (_colliders2D == null) return;
-
-        foreach (var collider in _colliders2D)
+        if (collider.CompareTag("Player")) 
         {
-            collider.isTrigger = true;
+            //if (collider)
+            //    Debug.Log("Pas normal c'est le collider box qui aurait du detecer ca !");
+
+            PlateformeTraversable();
         }
+
     }
 
     /// <summary>
-    /// Active la propritété Trigger de tous les colliders 2D de la plateforme.
+    /// Rend la plateforme non solide et traversable.
     /// </summary>
-    private void ActivateTriggerOnAllColliders2D()
+    public void PlateformeTraversable()
     {
-        if (_colliders2D == null) return;
+        _boxCollider2D.enabled = false;
+    }
 
-        foreach (var collider in _colliders2D)
-        {
-            collider.isTrigger = false;
-        }
+    /// <summary>
+    /// Rend la plateforme solide et non traversable. 
+    /// </summary>
+    public void PlateformeNonTraversable()
+    {
+        _boxCollider2D.enabled = true;
     }
 }
