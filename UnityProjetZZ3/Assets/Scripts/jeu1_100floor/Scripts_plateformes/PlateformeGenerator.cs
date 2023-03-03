@@ -2,6 +2,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+/// <summary>
+/// Script gérant la génération des plateformes en continue.
+/// Instanciation de toutes les plateformes et gestion avec des pools d'objects.
+/// Mise en place des plateformes sur tout l'écran au lancement du jeu.
+/// </summary>
 public class PlateformeGenerator : MonoBehaviour
 {
     // Paramètres des pools de plateformes
@@ -25,7 +31,7 @@ public class PlateformeGenerator : MonoBehaviour
 
     // La vitesse doit dépendre de la taille de l'écran
     // Multiplier par Jeu.transform.scale
-    public float _vitesseCarte; // Vitesse de montée des plateformes
+    public float VitesseCarte; // Vitesse de montée des plateformes
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +45,6 @@ public class PlateformeGenerator : MonoBehaviour
 
         _xMinEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionLeftCollider2D().x;
         _xMaxEcran = GameObject.Find("ContourCarte").GetComponent<ExtremiteBoxCollider2D>().GetPositionRightCollider2D().x;
-
-        // TODO A degager
-        //_xMinEcran = -2.68f;
-        //_xMaxEcran = 3.0f;
 
         // Génération de la carte
         GeneratePlateformeStart();
@@ -87,7 +89,7 @@ public class PlateformeGenerator : MonoBehaviour
         while (nbPoolTest < NB_PLATEFORMES)
         {
             // Choix d'un type de plateforme
-            choixPlateformes = Random.Range(1, NB_PLATEFORMES);
+            choixPlateformes = Random.Range(0, NB_PLATEFORMES);
             //choixPlateformes = 1; // TODO a changer pour forcer le spwan de plateforme que d'un type
 
             // Récupération d'une plateforme disponible dans le pool choisi (choixPlateformes)
@@ -138,7 +140,7 @@ public class PlateformeGenerator : MonoBehaviour
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
         // Re set la vitesse des plateformes (normalement pas utile)
-        plateforme.GetComponent<MovePlateforme>().Speed = _vitesseCarte;
+        plateforme.GetComponent<MovePlateforme>().Speed = VitesseCarte;
 
         // Décalage plateforme sur les Y pour qu'avec la plateforme précédente,
         // la distance entre les 2 soient bien _distanceEntrePlateformes (en tenant compte des BoxCollider)
@@ -218,7 +220,7 @@ public class PlateformeGenerator : MonoBehaviour
             {
                 GameObject obj = Instantiate(PlateformesPrefabs[p], transform); // Instanciation de l'objet plateforme
                 obj.name = obj.name + k.ToString(); // Rennomage de la plateforme
-                obj.GetComponent<MovePlateforme>().Speed = _vitesseCarte; // Parametrage de la vitesse 
+                obj.GetComponent<MovePlateforme>().Speed = VitesseCarte; // Parametrage de la vitesse 
                 obj.SetActive(false); // Désactivation de la plateforme
                 _poolPlateforme[p][k] = obj; // Ajout de la plateforme à son pool
             }

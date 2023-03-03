@@ -94,10 +94,10 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Réduit la vie d'une certaine valeur et actualise l'affichage de la barre de vie.
     /// </summary>
-    /// <param name="damage">Valeur de damage recu.</param>
-    public void PrendreDamage(uint damage)
+    /// <param name="degats">Valeur de degats recu.</param>
+    public void PrendreDegats(uint degats)
     {
-        Vie -= (damage < Vie ? damage : Vie);
+        Vie -= (degats < Vie ? degats : Vie);
         _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
     }
 
@@ -106,11 +106,11 @@ public class Player : MonoBehaviour
     /// La Vie de doit pas dépasser la constante VIE_MAX.
     /// </summary>
     /// <param name="pt">Valeur de la régénération de la vie, 1 par défaut.</param>
-    public void RegenerationVie(uint pt = 1)
+    public void RegenerationVie(uint value = 1)
     {
         if (Vie < VIE_MAX)
         {
-            Vie += pt;
+            Vie += value;
             _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
         }
     }

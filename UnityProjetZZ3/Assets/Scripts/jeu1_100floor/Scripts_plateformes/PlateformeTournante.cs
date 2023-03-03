@@ -2,38 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Script d'effet de la plateforme tournante.
+/// Lance l'animation lorsque le player rentre en contact avec, 
+/// et le stop dans sa chute.
+/// </summary>
 public class PlateformeTournante : MonoBehaviour
 {
-    public float ForceFreinage;
+    private Animator _animator;
 
-    public Animator animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
-
-
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        animator.SetTrigger("AnimationPlay");
-    //        // Ajoute des frottements pour ralentir la chute
-    //        //collision.gameObject.GetComponent<Rigidbody2D>().drag = ForceFreinage;
-    //        //this.GetComponent<Collider2D>().enabled = false;
-    //    }
-    //}
-
-    //public void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        // Supprime les frottements 
-    //        //collision.gameObject.GetComponent<Rigidbody2D>().drag = 0;
-    //    }
-    //}
+    void Start() { _animator = GetComponent<Animator>(); }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -41,8 +20,8 @@ public class PlateformeTournante : MonoBehaviour
         {
             // Lance l'animation : 
             // - change le sprite
-            // - rend le collider triggered
-            animator.SetTrigger("AnimationPlay");
+            // - rend la plateforme traversable via un event trigger 
+            _animator.SetTrigger("AnimationPlay");
 
             var rbPlayer = collision.gameObject.GetComponent<Rigidbody2D>();
             rbPlayer.velocity = Vector3.zero;

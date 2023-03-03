@@ -4,72 +4,66 @@ using UnityEngine;
 
 /// <summary>
 /// Script de déplacement d'une plateforme à vitesse constante vers le haut.
-/// Gère la collision par le dessous de la plateforme, 
-/// en rendant trigger tous les colliders2D pour ne pas bloquer le player.
+/// Gère la collision avec le player et désactive le BoxCollider2D quand la
+/// la plateforme doit devenir traversable.
 /// </summary>
 public class MovePlateforme : MonoBehaviour
 {
-    // Vitesse de déplacement de l'objet (en unités par seconde)
-    public float Speed;
+    public float Speed;    // Vitesse de déplacement de l'objet 
 
-    private EdgeCollider2D _edgeCollider2D;
     private BoxCollider2D _boxCollider2D;
-
     private Rigidbody2D _rb;
 
     public void Awake()
     {
-        _edgeCollider2D = GetComponent<EdgeCollider2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-
         _rb = GetComponent<Rigidbody2D>();
     }
 
     public void OnEnable()
     {
-        // A l'activation de la plateforme, réactivation de tous ses colliders
+        // A l'activation de la plateforme, remise en état d'origine
+        // ie que la plateforme est non traversable pour pouvoir appliquer ses effets
         PlateformeNonTraversable();
     }
 
     private void FixedUpdate()
     {
-        // Déplacement de la plateforme vers le haut
+        // Déplacement de la plateforme vers le haut de facon constante
         _rb.velocity = Vector2.up * Speed;
     }
 
-
+    /// <summary>
+    /// Détecte la collision avec le Player sur la plateforme, 
+    /// ie avec le BoxCollider2D (non triggered), vérification
+    /// que la collision vient bien du desssus.
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            //if (_extremiteBoxCollider2D == null) // Pour éviter les soucis au start (avec des colliders pas encore récup)
-            //    return; // Pas encore récupéré
-
-            // Rend la plateforme traversable dès qu'elle passe au dessus du player
-            // Collision avec le pLayer par en dessous la plateforme
-            //if (transform.position.y > collision.transform.position.y)
-            //    DesactivateTriggerOnAllColliders2D();
-
             if (collision.contacts[0].normal.y > 0.5f)
                 PlateformeTraversable();
-
         }
     }
 
+    /// <summary>
+    /// Détecte lorsque le Player dépasse la plateforme avec l'EdgeCollider2D (triggered),
+    /// puis rend la plateforme traversable pour éviter les collisions par le dessous.
+    /// </summary>
+    /// <param name="collider"></param>
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player")) 
+        if (collider.CompareTag("Player"))
         {
-            //if (collider)
-            //    Debug.Log("Pas normal c'est le collider box qui aurait du detecer ca !");
-
             PlateformeTraversable();
         }
 
     }
 
     /// <summary>
-    /// Rend la plateforme non solide et traversable.
+    /// Rend la plateforme non solide et traversable. (désactive le collider)
     /// </summary>
     public void PlateformeTraversable()
     {
@@ -77,7 +71,7 @@ public class MovePlateforme : MonoBehaviour
     }
 
     /// <summary>
-    /// Rend la plateforme solide et non traversable. 
+    /// Rend la plateforme solide et non traversable. (active le collider)
     /// </summary>
     public void PlateformeNonTraversable()
     {

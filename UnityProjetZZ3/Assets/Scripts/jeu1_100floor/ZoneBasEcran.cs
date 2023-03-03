@@ -21,7 +21,7 @@ public class ZoneBasEcran : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             var scriptPlayer = collision.gameObject.GetComponent<Player>();
-            scriptPlayer.PrendreDamage(scriptPlayer.VIE_MAX);
+            scriptPlayer.PrendreDegats(scriptPlayer.VIE_MAX);
         }
     }
 }

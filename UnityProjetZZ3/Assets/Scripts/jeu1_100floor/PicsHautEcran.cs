@@ -12,7 +12,7 @@ public class PicsHautEcran : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Enleve la Vie au Player
-            collision.gameObject.GetComponent<Player>().PrendreDamage(Damage);
+            collision.gameObject.GetComponent<Player>().PrendreDegats(Damage);
 
             // Récupère le collider de la plateforme pour sur laquelle 
             // le player est posée, et la rend trigger
