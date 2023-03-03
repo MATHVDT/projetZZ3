@@ -1421,7 +1421,7 @@ MonoBehaviour:
   - {fileID: 2759423360823149334, guid: 1a94e6e25dd444d4f8ad698bdee6912d, type: 3}
   - {fileID: 2458526051308907857, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
   - {fileID: 7113543640245475772, guid: 6311370c73d053444a6993da4c1c7179, type: 3}
-  _vitesseCarte: 0.72
+  VitesseCarte: 0.72
 --- !u!1 &6929673350157681277
 GameObject:
   m_ObjectHideFlags: 0
