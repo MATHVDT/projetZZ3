@@ -108,15 +108,22 @@ TextureImporter:
       name: Sprites_obstacles_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 454
-        width: 59
-        height: 54
+        x: 1
+        y: 448
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -29.5, y: 27}
+        - {x: -29.5, y: 6}
+        - {x: -29.5, y: -27}
+        - {x: 23.5, y: -27}
+        - {x: 29.5, y: -27}
+        - {x: 29.5, y: 27}
+        - {x: 20.5, y: 27}
       tessellationDetail: 0
       bones: []
       spriteID: 81bb377cb60eeb645a6a2b547cfb99cf
@@ -130,14 +137,24 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 75
-        y: 453
+        y: 448
         width: 64
-        height: 55
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 32, y: 27.5}
+        - {x: -32, y: 27.5}
+        - {x: -32, y: 21.5}
+        - {x: -32, y: 16.5}
+        - {x: -32, y: -15.5}
+        - {x: -32, y: -27.5}
+        - {x: 32, y: -27.5}
+        - {x: 32, y: -23.5}
+        - {x: 32, y: 7.5}
+        - {x: 32, y: 13.5}
       tessellationDetail: 0
       bones: []
       spriteID: 0364c22b11ade304fafe99d287e4e2c0
