@@ -32,7 +32,9 @@ public class PlateformeTapisRoulant : MonoBehaviour
 
         // En fonction du sens
         VitesseTapisRoulant *= (int)sens; // Calcule de la vitesse 
-        GetComponent<Animator>().SetInteger("sens", (int)sens); // Choix de l'animation 
+
+        if (sens == Sens.Gauche) // Flip le sprite de l'animation
+            GetComponent<SpriteRenderer>().flipX = true;
     }
 
     public void OnCollisionStay2D(Collision2D collision)

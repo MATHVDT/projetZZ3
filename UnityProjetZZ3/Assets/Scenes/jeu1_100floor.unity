@@ -3699,6 +3699,11 @@ RectTransform:
   m_AnchoredPosition: {x: 1.7220001, y: 1.7764702}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &1772242231 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 982037188828729261, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+  m_PrefabInstance: {fileID: 1834820336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1834820336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3709,6 +3714,10 @@ PrefabInstance:
     - target: {fileID: 782797069398078827, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
       propertyPath: m_Name
       value: '[UI] InterfaceConsole'
+      objectReference: {fileID: 0}
+    - target: {fileID: 982037188828729261, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8954337668874179081, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
       propertyPath: m_Pivot.x
@@ -3796,11 +3805,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
---- !u!224 &1834820337 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8954337668874179081, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
-  m_PrefabInstance: {fileID: 1834820336}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1856267856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5910780925735829869, guid: 2c248f19d3edf7c4b948ba3903860dd7, type: 3}
@@ -4947,11 +4951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2458526051308907869, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.86
+      value: 2.726
       objectReference: {fileID: 0}
     - target: {fileID: 2458526051308907869, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 2458526051308907869, guid: 1655e238f0ae5f247b1e9f96233a2eec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5155,7 +5159,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3859212135101482652}
-  - {fileID: 1834820337}
+  - {fileID: 1772242231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5319,6 +5323,10 @@ PrefabInstance:
     - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
       propertyPath: m_Name
       value: Carte
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929673349556784020, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2bbb8ea9e23ac43a54d9137c064cc0, type: 3}

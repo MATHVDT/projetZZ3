@@ -220,8 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365e47b27944cac4c89356cef5f1c3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceFreinage: 25
-  animator: {fileID: 0}
 --- !u!82 &8375025879038488150
 AudioSource:
   m_ObjectHideFlags: 0
