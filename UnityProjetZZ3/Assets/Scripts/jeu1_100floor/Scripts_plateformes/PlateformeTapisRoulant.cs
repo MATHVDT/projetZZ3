@@ -14,6 +14,8 @@ public class PlateformeTapisRoulant : MonoBehaviour
     public float VitesseTapisRoulant;
     public Sens sens; // Prend les valeurs -1 ou +1
 
+    private Vector2 _forceTapisRoulant;
+
     /// <summary>
     /// Set up du sens de la plateforme quand elle est créée.
     /// </summary>
@@ -32,6 +34,7 @@ public class PlateformeTapisRoulant : MonoBehaviour
 
         // En fonction du sens
         VitesseTapisRoulant *= (int)sens; // Calcule de la vitesse 
+        _forceTapisRoulant = VitesseTapisRoulant * Vector2.right;
 
         if (sens == Sens.Gauche) // Flip le sprite de l'animation
             GetComponent<SpriteRenderer>().flipX = true;
@@ -41,7 +44,7 @@ public class PlateformeTapisRoulant : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         { // Application d'une force horizontale sur le Player 
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(VitesseTapisRoulant, 0), ForceMode2D.Force);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(_forceTapisRoulant, ForceMode2D.Force);
         }
     }
 }
