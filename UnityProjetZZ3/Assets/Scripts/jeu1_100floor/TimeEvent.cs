@@ -14,23 +14,25 @@ public class TimeEvent : MonoBehaviour
 {
     public float TimeToVieInc;
     public float TimeToScoreInc;
+    //public float TimeBeforeStartGame;
 
     private Player _player;
 
-    private uint _score;
+    public uint _score = 1;
 
     private float _scoreTime;
     private float _vieTime;
 
     private float _currentTime;
 
-    public AffichageScore _affichageScore;
+    private AffichageScore _affichageScore;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.FindWithTag("Player").GetComponent<Player>();
         _affichageScore = GameObject.Find("[UI] Score").GetComponent<AffichageScore>();
+        Debug.Log("start jeu1_100FLOOR");
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class TimeEvent : MonoBehaviour
         if (_currentTime - _vieTime > TimeToVieInc)
         {
             _vieTime = _currentTime;
-            _player.RegenerationVie(); 
+            _player.RegenerationVie();
         }
     }
 
