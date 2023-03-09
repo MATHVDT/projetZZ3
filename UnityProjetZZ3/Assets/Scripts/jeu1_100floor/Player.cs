@@ -15,12 +15,15 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Animator _animator;
+    private AudioSource _audioSource;
 
+    private Launcher _launcher;
     private SetValueControls _controls;
     private BarreVie _barreVie;
 
     //private Transform transform;
     private Vector3 _initialPosition; // TODO à dégager
+    private bool _finPartie = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +33,10 @@ public class Player : MonoBehaviour
         // Récupération des components
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
         // Récupération des scripts liés à l'UI
+        _launcher = GameObject.Find("[UI] Launcher").GetComponent<Launcher>();
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
 
@@ -40,7 +45,6 @@ public class Player : MonoBehaviour
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
         _animator.Play("AnimationTree");
-
     }
 
     // Update is called once per frame
@@ -58,7 +62,18 @@ public class Player : MonoBehaviour
         // Gestion de la FIN du niveau
         if (Vie == 0)
         {
-            //Debug.Log("Fin du niveau.");
+            if (!_finPartie)
+            {
+                Debug.Log("Fin du niveau.");
+                _finPartie = true;
+                _audioSource.Play();
+            }
+            else
+            {
+                if (!_audioSource.isPlaying)
+                    _launcher.ChargerMenuPrincipal();
+            }
+
             //PlayerVelocity = Vector2.zero;
             //this.enabled = false;
         }
