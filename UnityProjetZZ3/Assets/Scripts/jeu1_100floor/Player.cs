@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
     /// <param name="pt">Valeur de la régénération de la vie, 1 par défaut.</param>
     public void RegenerationVie(uint value = 1)
     {
-        if (Vie < VIE_MAX)
+        if (!_finPartie && Vie < VIE_MAX)
         {
             Vie += value;
             _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
