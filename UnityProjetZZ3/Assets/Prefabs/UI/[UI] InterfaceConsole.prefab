@@ -29,6 +29,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2242605401638784595}
+  - {fileID: 1911920570697425139}
   - {fileID: 4177888933600667377}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,6 +39,98 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1387693247753435762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911920570697425139}
+  - component: {fileID: 1473291627510679739}
+  - component: {fileID: 3643369328465993347}
+  - component: {fileID: 6180213231565380643}
+  m_Layer: 6
+  m_Name: '[UI] MenuPause '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1911920570697425139
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387693247753435762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.81, y: 0.81, z: 0.81}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8954337668874179081}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 17, y: 33}
+  m_SizeDelta: {x: 469, y: 396}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1473291627510679739
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387693247753435762}
+  m_CullTransparentMesh: 1
+--- !u!114 &3643369328465993347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387693247753435762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 8fcf1f6c435b16e459906bbb93023ac0, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &6180213231565380643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387693247753435762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3b8e7038c5841408da7805817110e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuPauseTexture:
+  - {fileID: 2800000, guid: 8fcf1f6c435b16e459906bbb93023ac0, type: 3}
+  - {fileID: 2800000, guid: fd64830f4b042cc4483bb1192805ad93, type: 3}
+  Pause: 0
+  MenuPauseState: 0
+  _controls: {fileID: 4177888933600667376}
 --- !u!1 &2242605401638784596
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177888933600667377}
   - component: {fileID: 4177888933600667376}
+  - component: {fileID: 7756885615669924605}
   m_Layer: 6
   m_Name: '[UI] Controls'
   m_TagString: Untagged
@@ -145,7 +239,7 @@ RectTransform:
   - {fileID: 4177888934375913744}
   - {fileID: 4177888933775947818}
   m_Father: {fileID: 8954337668874179081}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -173,6 +267,22 @@ MonoBehaviour:
   buttonDown: 0
   horizontalAxis: 0
   verticalAxis: 0
+--- !u!114 &7756885615669924605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177888933600667342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3b8e7038c5841408da7805817110e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuPauseTexture: []
+  Pause: 0
+  MenuPauseState: 0
+  _controls: {fileID: 0}
 --- !u!1 &4177888933775947819
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +836,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: MenuPause, Assembly-CSharp
+          m_MethodName: EnablePause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 2
     callback:
       m_PersistentCalls:
@@ -740,12 +862,24 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 4177888933600667376}
           m_TargetAssemblyTypeName: SetValueControls, Assembly-CSharp
           m_MethodName: SetButtonMenu
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 6180213231565380643}
+          m_TargetAssemblyTypeName: MenuPause, Assembly-CSharp
+          m_MethodName: EnablePause
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
