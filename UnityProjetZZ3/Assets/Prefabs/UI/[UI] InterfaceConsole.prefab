@@ -214,7 +214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4177888933600667377}
   - component: {fileID: 4177888933600667376}
-  - component: {fileID: 7756885615669924605}
   m_Layer: 6
   m_Name: '[UI] Controls'
   m_TagString: Untagged
@@ -267,22 +266,6 @@ MonoBehaviour:
   buttonDown: 0
   horizontalAxis: 0
   verticalAxis: 0
---- !u!114 &7756885615669924605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4177888933600667342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3b8e7038c5841408da7805817110e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuPauseTexture: []
-  Pause: 0
-  MenuPauseState: 0
-  _controls: {fileID: 0}
 --- !u!1 &4177888933775947819
 GameObject:
   m_ObjectHideFlags: 0

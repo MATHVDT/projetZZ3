@@ -22,6 +22,7 @@ public class Launcher : MonoBehaviour
     private void Awake()
     {
         GameLauncher.SetActive(SceneManager.GetActiveScene().buildIndex == 0);
+        Time.timeScale= 1.0f;
     }
 
     public void ChargerScene(int indexScene)

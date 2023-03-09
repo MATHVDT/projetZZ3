@@ -549,18 +549,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[UI] InterfaceConsole'
       objectReference: {fileID: 0}
-    - target: {fileID: 1911920570697425139, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911920570697425139, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911920570697425139, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.81
-      objectReference: {fileID: 0}
     - target: {fileID: 8954337668874179081, guid: 15d11584562eede48b318a139cb4e00a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

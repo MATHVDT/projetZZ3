@@ -15,14 +15,14 @@ public class TimeEvent : MonoBehaviour
     public float TimeToVieInc;
     public float TimeToScoreInc;
 
-    Player _player;
+    private Player _player;
 
-    public uint _score;
+    private uint _score;
 
-    public float _scoreTime;
-    public float _vieTime;
+    private float _scoreTime;
+    private float _vieTime;
 
-    public float _currentTime;
+    private float _currentTime;
 
     public AffichageScore _affichageScore;
 

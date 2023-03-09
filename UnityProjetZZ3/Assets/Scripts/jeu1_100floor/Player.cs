@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // TODO Bouton de DEBUG 
-        if (_controls.buttonMenu)
+        if (_controls.buttonB)
         {
             transform.position = _initialPosition;
             PlayerVelocity = _rb.velocity;
