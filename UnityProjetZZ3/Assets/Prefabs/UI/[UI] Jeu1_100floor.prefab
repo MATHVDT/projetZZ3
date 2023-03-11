@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448160579532318001}
   m_Layer: 7
-  m_Name: '[UI] Texte_image'
+  m_Name: '[UI] TexteFixe'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
