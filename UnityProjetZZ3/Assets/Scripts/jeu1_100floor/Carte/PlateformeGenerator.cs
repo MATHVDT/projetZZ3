@@ -84,12 +84,13 @@ public class PlateformeGenerator : MonoBehaviour
     private GameObject ChoisirPlateformeInPools()
     {
         int choixPlateformes; int nbPoolTest = 0;
+        List<int> poolDispo = new List<int> { 0, 1, 2, 3, 4 }; // 5 types de plateformes
 
         // Tant que l'on a pas tester tous les pools de plateformes
         while (nbPoolTest < NB_PLATEFORMES)
         {
             // Choix d'un type de plateforme
-            choixPlateformes = Random.Range(0, NB_PLATEFORMES);
+            choixPlateformes = poolDispo[Random.Range(0, poolDispo.Count)];
             //choixPlateformes = 1; // TODO a changer pour forcer le spwan de plateforme que d'un type
 
             // Récupération d'une plateforme disponible dans le pool choisi (choixPlateformes)
@@ -99,6 +100,7 @@ public class PlateformeGenerator : MonoBehaviour
             if (plateforme != null) { return plateforme; }
 
             Debug.LogWarning($"Plus de plateformes de type {choixPlateformes} disponibles.");
+            poolDispo.Remove(choixPlateformes);
             ++nbPoolTest;
         }
         throw new System.Exception("Aucune plateformes disponibles dans les pool.");

@@ -23,13 +23,5 @@ public class RecyclagePlateforme : MonoBehaviour
                 generator.GeneratePlateforme();
             }
         }
-
     }
-
-    //public void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log($"collision {collision.gameObject.name}");
-    //    collision.gameObject.SetActive(false);
-    //    generator.GeneratePlateforme();
-    //}
 }
