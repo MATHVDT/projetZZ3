@@ -194,12 +194,12 @@ public class PlateformeGenerator : MonoBehaviour
         {
             // Find Y position
             Vector3 extremiteBasse = _lastPlateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionDownCollider2D();
-            positionActivation = extremiteBasse + _distanceEntrePlateformes * Vector3.down;
+            positionActivation = extremiteBasse+ _distanceEntrePlateformes * Vector3.down;
 
             // Find X position
             float x = Random.Range(_xMinEcran, _xMaxEcran);
             // TODO : fonction qui utilise un aléatoire suivant une génération bien
-            positionActivation += x * Vector3.right;
+            positionActivation.x = x ;
         }
         return positionActivation;
     }
