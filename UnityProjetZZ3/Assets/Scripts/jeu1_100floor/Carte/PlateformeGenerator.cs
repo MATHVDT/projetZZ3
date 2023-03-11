@@ -12,7 +12,7 @@ public class PlateformeGenerator : MonoBehaviour
 {
     // Paramètres des pools de plateformes
     const int NB_PLATEFORMES = 5;
-    const int POOL_SIZE = 10;
+    const int POOL_SIZE = 5;
 
     // Prefab des plateformes stockées dedans (directement depuis l'inspector)
     public GameObject[] PlateformesPrefabs = new GameObject[NB_PLATEFORMES];
