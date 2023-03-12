@@ -23,7 +23,7 @@ public class PlateformeGenerator : MonoBehaviour
     // Variable de calculs
     private float _hauteurPlayer = 0;
     private float _distanceEntrePlateformes = 0;
-    private float _ratioHauteurPlayer = 1.0f;
+    private float _ratioHauteurPlayer = 1.10f;
 
     // Bornes des x pour l'activation des plateformes
     private float _xMinEcran;
