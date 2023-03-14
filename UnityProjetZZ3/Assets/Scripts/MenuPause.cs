@@ -29,21 +29,34 @@ public class MenuPause : MonoBehaviour
 
     public void Update()
     {
-        if (_controls.buttonUp) { MenuPauseState = State.Resume; }
-        else if (_controls.buttonDown) { MenuPauseState = State.Quit; }
-
-        if (_controls.buttonA)
-        {
-            if (MenuPauseState == State.Resume) DisactivePause();
-            else if (MenuPauseState == State.Quit) _launcher.ChargerLauncherGame();
-        }
-
         if (Pause)
         {
             _image.texture = MenuPauseTexture[(int)MenuPauseState];
         }
     }
 
+    public void SelectionUp()
+    {
+        if (Pause)
+            MenuPauseState = State.Resume;
+    }
+
+    public void SelectionDown()
+    {
+        if (Pause)
+            MenuPauseState = State.Quit;
+    }
+
+    public void ValidateSelection()
+    {
+        if (Pause)
+        {
+            if (MenuPauseState == State.Resume)
+                DisactivePause();
+            else if (MenuPauseState == State.Quit)
+                _launcher.ChargerLauncherGame();
+        }
+    }
 
     public void EnablePause()
     {

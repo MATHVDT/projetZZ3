@@ -421,63 +421,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934130933845}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonLeft
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934130933845}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonLeft
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -620,63 +564,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934289611940}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: b4d18d1cb8b8a2c4cb6860e70d328f9b, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonA
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934289611940}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 72c63a1e9a7ca98499a940ebb00e71d5, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonA
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -831,75 +719,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934375913746}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: d9e55a1f5f919814dbaf4d89a7f8ccb8, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueControls, Assembly-CSharp
-          m_MethodName: SetButtonMenu
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 6180213231565380643}
-          m_TargetAssemblyTypeName: MenuPause, Assembly-CSharp
-          m_MethodName: EnablePause
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934375913746}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: d70afdfa4d41ea54990f43d0619c78c9, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueControls, Assembly-CSharp
-          m_MethodName: SetButtonMenu
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1042,63 +862,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934643858603}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonRight
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888934643858603}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonRight
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1241,63 +1005,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935004838864}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonDown
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935004838864}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonDown
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1440,63 +1148,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935531920742}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 3b30cae957e79a549964dc2c9e0545a8, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonB
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935531920742}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 0e388fe2b27187845b1258bf10d9a221, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonB
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1639,63 +1291,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935609175944}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 2299c4b091dda3f4ab71f0bc2c56b285, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonUp
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
   - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4177888935609175944}
-          m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
-          m_MethodName: set_texture
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2800000, guid: 03bcae741e5cfef478e6420cbe57a22c, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4177888933600667376}
-          m_TargetAssemblyTypeName: SetValueKey, Assembly-CSharp
-          m_MethodName: SetButtonUp
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
