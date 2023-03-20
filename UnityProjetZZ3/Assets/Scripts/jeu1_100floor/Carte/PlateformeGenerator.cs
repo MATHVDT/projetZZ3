@@ -194,12 +194,12 @@ public class PlateformeGenerator : MonoBehaviour
         {
             // Find Y position
             Vector3 extremiteBasse = _lastPlateforme.GetComponent<ExtremiteBoxCollider2D>().GetPositionDownCollider2D();
-            positionActivation = extremiteBasse+ _distanceEntrePlateformes * Vector3.down;
+            positionActivation = extremiteBasse + _distanceEntrePlateformes * Vector3.down;
 
             // Find X position
             float x = Random.Range(_xMinEcran, _xMaxEcran);
             // TODO : fonction qui utilise un aléatoire suivant une génération bien
-            positionActivation.x = x ;
+            positionActivation.x = x;
         }
         return positionActivation;
     }
@@ -273,8 +273,16 @@ public class PlateformeGenerator : MonoBehaviour
         var centerPlateformPosition = new Vector3(xCenter, plateformeCenter.transform.position.y, plateformeCenter.transform.position.z);
 
         // Changement par une plateforme simple
+        // Récupération dernière plateforme simple
+        GameObject plateformeSimple = _poolPlateforme[2][POOL_SIZE - 1];
+        if (plateformeSimple.activeInHierarchy)
+        { // dernière plateforme simple activée, ie toutes activée normalement
+            plateformeSimple.SetActive(false); // Desactivation de la plateforme
+            // Activation d'une autre plateforme à sa place pour la remplacer
+            ActivationPlateformeFromPosition(ChoisirPlateformeInPools(), plateformeSimple.transform.position);
+        }
         plateformeCenter.SetActive(false); // Desactivation de l'ancienne plateforme
-        plateformeCenter = ChoisirPlateformeInPool(2);  // Récupéraction d'un plateforme simple disponible
+        plateformeCenter = plateformeSimple;  // Récupéraction de la plateforme simple disponible
         ActivationPlateformeFromPosition(plateformeCenter, centerPlateformPosition); // Activation de la plateforme simple
 
         // Récupération du haut de la plateforme
@@ -283,6 +291,9 @@ public class PlateformeGenerator : MonoBehaviour
         // Ajustement du player au dessus de la plateforme au centre de l'écran
         transformPlayer.position = positionHautColliderPlateforme;
         transformPlayer.GetComponent<ExtremiteBoxCollider2D>().DecalagePositionToUpCollider2D();
+
+        // Rendre les plateforme au dessus du player traversable
+        RendrePlateformeAuDessusPlayerTraversable(transformPlayer.position.y);
     }
 
     /// <summary>
@@ -310,4 +321,25 @@ public class PlateformeGenerator : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Parcours toutes les plateformes et rend traversables toutes
+    /// celles qui sont au dessus du y donné en paramètre.
+    /// </summary>
+    /// <param name="yPlayer"></param>
+    private void RendrePlateformeAuDessusPlayerTraversable(float yPlayer)
+    {
+        foreach (var pool in _poolPlateforme)
+        {
+            // Sur chaque plateforme
+            foreach (var plateforme in pool)
+            {
+                // La plateforme est au dessus du joueur
+                if (plateforme.activeInHierarchy &&
+                    plateforme.transform.position.y > yPlayer)
+                {
+                    plateforme.GetComponent<MovePlateforme>().PlateformeTraversable();
+                }
+            }
+        }
+    }
 }
