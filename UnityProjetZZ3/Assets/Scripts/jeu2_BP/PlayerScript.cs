@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -30,8 +28,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_controls.buttonMenu)
-            transform.position = _initialPosition;
+        //if (_controls.buttonMenu) // debug
+        //    transform.position = _initialPosition;
     }
 
     private void FixedUpdate()
@@ -43,7 +41,7 @@ public class PlayerScript : MonoBehaviour
             GameObject bomb = Instantiate(_bombPrefab);
             Vector3 bombPosition = transform.position + new Vector3(0, - transform.localScale.y / 4, 0);
 
-            //On ajuste les coordonnées de la bombe pour q'uelle se trouve exactement sur une case de la grille
+            //On ajuste les coordonnï¿½es de la bombe pour q'uelle se trouve exactement sur une case de la grille
             bomb.transform.position = new Vector3(Mathf.Floor(bombPosition.x) + (float)0.5,
                                                 (Mathf.Floor(bombPosition.y) + (float)0.5) * (float)0.7,
                                                 Mathf.Floor(bombPosition.z) + (float)0.5);
