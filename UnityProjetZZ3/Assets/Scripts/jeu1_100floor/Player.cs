@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GestionPartie _gestionPartie;
+
     public readonly uint VIE_MAX = 10;
     public uint Vie;
     public float TimeToRegenVie;
@@ -19,6 +22,7 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private AudioSource _audioSource;
 
+
     private Launcher _launcher;
     private SetValueControls _controls;
     private BarreVie _barreVie;
@@ -30,6 +34,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gestionPartie = GetComponentInParent<GestionPartie>();
+
         _initialPosition = transform.position; // TODO à dégager
 
         // Récupération des components
@@ -43,11 +49,14 @@ public class Player : MonoBehaviour
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
 
+
         // Initialisation des variables
         Vie = VIE_MAX;
         ContactPlateforme = false;
         PlayerVelocity = Vector2.zero;
         _animator.Play("AnimationTree");
+
+        //while (_gestionPartie.Partie == EtatPartie.Debut) ;
     }
 
     // Update is called once per frame
@@ -126,7 +135,7 @@ public class Player : MonoBehaviour
         StartCoroutineUnique(Clignoter()); // 
         Vie -= (degats < Vie ? degats : Vie);
         _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
-        StartCoroutineUnique(RegenerationVie());
+        StartCoroutineUnique(RegenerationVie(TimeToRegenVie));
     }
 
     /// <summary>
@@ -135,11 +144,11 @@ public class Player : MonoBehaviour
     /// La Vie de doit pas dépasser la constante VIE_MAX.
     /// </summary>
     /// <param name="pt">Valeur de la régénération de la vie, 1 par défaut.</param>
-    private IEnumerator RegenerationVie(uint value = 1)
+    private IEnumerator RegenerationVie(float tempsRegen, uint value = 1)
     {
         while (!_finPartie && Vie < VIE_MAX)
         {
-            yield return new WaitForSeconds(TimeToRegenVie);
+            yield return new WaitForSeconds(tempsRegen);
             Vie += value;
             _barreVie.ChangeVie(Vie); // Mise à jour de l'affichage
         }

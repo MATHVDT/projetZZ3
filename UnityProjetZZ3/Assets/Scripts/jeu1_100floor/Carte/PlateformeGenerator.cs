@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class PlateformeGenerator : MonoBehaviour
 {
+    public GestionPartie _gestionPartie;
+
     // Paramètres des pools de plateformes
     const int NB_PLATEFORMES = 5;
     const int POOL_SIZE = 5;
@@ -36,6 +38,9 @@ public class PlateformeGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gestionPartie = transform.parent?.GetComponentInParent<GestionPartie>();
+        if (_gestionPartie == null) Debug.LogWarning("Récupération du script GestionPartie pas réussi dans le " + transform.parent?.name + "+" + transform.parent?.parent?.name);
+
         // Set up les pool des plateformes
         CreatePlateformesPool();
 
@@ -51,8 +56,11 @@ public class PlateformeGenerator : MonoBehaviour
 
         // Set Player au centre et sur une plateforme simple au début de la game
         SetCenterPlayerPlateformeAtStart();
-    }
 
+        //int i = 0;
+        //while (i < 99 || _gestionPartie.Partie == EtatPartie.Debut) { Debug.Log("attente debut"); ++i; }
+        ActiveDeplacementPlateformes(); // Met en mouvement les plateformes
+    }
 
 
     /// <summary>
@@ -141,8 +149,6 @@ public class PlateformeGenerator : MonoBehaviour
 
         plateforme.transform.position = positionActivation;
         plateforme.SetActive(true);
-        // Re set la vitesse des plateformes (normalement pas utile)
-        plateforme.GetComponent<MovePlateforme>().Speed = VitesseCarte;
 
         // Décalage plateforme sur les Y pour qu'avec la plateforme précédente,
         // la distance entre les 2 soient bien _distanceEntrePlateformes (en tenant compte des BoxCollider)
@@ -222,13 +228,28 @@ public class PlateformeGenerator : MonoBehaviour
             {
                 GameObject obj = Instantiate(PlateformesPrefabs[p], transform); // Instanciation de l'objet plateforme
                 obj.name = obj.name + k.ToString(); // Rennomage de la plateforme
-                obj.GetComponent<MovePlateforme>().Speed = VitesseCarte; // Parametrage de la vitesse 
+                obj.GetComponent<MovePlateforme>().Speed = 0; // Plateforme à l'arrêt au début
                 obj.SetActive(false); // Désactivation de la plateforme
                 _poolPlateforme[p][k] = obj; // Ajout de la plateforme à son pool
             }
         }
     }
 
+    /// <summary>
+    /// Active le déplacement des toutes la plateformes dans les pool.
+    /// </summary>
+    /// <param name="active"></param>
+    public void ActiveDeplacementPlateformes(bool active = true)
+    {
+        for (int p = 0; p < NB_PLATEFORMES; ++p)
+        {
+            for (int k = 0; k < POOL_SIZE; ++k)
+            {
+                _poolPlateforme[p][k].GetComponent<MovePlateforme>().Speed = (active ? VitesseCarte : 0);
+
+            }
+        }
+    }
 
     /***************************** METHODE START ************************************/
 
