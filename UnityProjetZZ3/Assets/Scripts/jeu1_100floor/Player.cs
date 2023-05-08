@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
 {
     public readonly uint VIE_MAX = 10;
     public uint Vie;
+    public float TimeToRegenVie;
     public float Speed;
 
     public Vector2 PlayerVelocity;
     public bool ContactPlateforme;
 
+    private Renderer _renderer;
     private Rigidbody2D _rb;
     private Animator _animator;
     private AudioSource _audioSource;
@@ -22,20 +24,21 @@ public class Player : MonoBehaviour
     private BarreVie _barreVie;
 
     //private Transform transform;
-    private Vector3 _initialPosition; // TODO ‡ dÈgager
+    private Vector3 _initialPosition; // TODO √† d√©gager
     private bool _finPartie = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _initialPosition = transform.position; // TODO ‡ dÈgager
+        _initialPosition = transform.position; // TODO √† d√©gager
 
-        // RÈcupÈration des components
+        // R√©cup√©ration des components
+        _renderer = GetComponent<Renderer>();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
 
-        // RÈcupÈration des scripts liÈs ‡ l'UI
+        // R√©cup√©ration des scripts li√©s √† l'UI
         _launcher = GameObject.Find("[UI] Launcher").GetComponent<Launcher>();
         _controls = GameObject.Find("[UI] Controls").GetComponent<SetValueControls>();
         _barreVie = GameObject.Find("[UI] BarreVie").GetComponent<BarreVie>();
@@ -66,6 +69,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Fin du niveau.");
                 _finPartie = true;
+                StopAllCoroutines();
                 _audioSource.Play();
             }
             else
@@ -82,17 +86,20 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Calcul du dÈplacement du player 
-        PlayerVelocity = _rb.velocity; // RÈcupÈration de la force appliquÈe sur le player
+        // Calcul du d√©placement du player 
+        PlayerVelocity = _rb.velocity; // R√©cup√©ration de la force appliqu√©e sur le player
         PlayerVelocity.x = _controls.horizontalAxis * Speed; // Calcul de la nouvelle composante X de cette force en fonction des controls
         _rb.velocity = PlayerVelocity; // Application de la force sur le player
 
-        // Lancement des animations du player en fonction de son dÈplacement
+        // Lancement des animations du player en fonction de son d√©placement
         _animator.SetFloat("moveX", _controls.horizontalAxis / Math.Abs((_controls.horizontalAxis == 0 ? 1 : _controls.horizontalAxis)));
         _animator.SetFloat("moveY", (ContactPlateforme ? 0.0f : 1.0f));
     }
 
-
+    /// <summary>
+    /// D√©tecte quand le Player att√©rit sur une plateforme et active le bool√©en ContactPlateforme √† true.
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Plateforme"))
@@ -100,6 +107,10 @@ public class Player : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// D√©tecte quand le Player n'est plus sur une plateforme et d√©sactive le bool√©en ContactPlateforme √† false.
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Plateforme"))
@@ -107,26 +118,61 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// RÈduit la vie d'une certaine valeur et actualise l'affichage de la barre de vie.
+    /// R√©duit la vie d'une certaine valeur et actualise l'affichage de la barre de vie.
     /// </summary>
     /// <param name="degats">Valeur de degats recu.</param>
     public void PrendreDegats(uint degats)
     {
+        StartCoroutineUnique(Clignoter()); // 
         Vie -= (degats < Vie ? degats : Vie);
-        _barreVie.ChangeVie(Vie); // Mise ‡ jour de l'affichage
+        _barreVie.ChangeVie(Vie); // Mise √† jour de l'affichage
+        StartCoroutineUnique(RegenerationVie());
     }
 
     /// <summary>
-    /// Augmente la vie d'une certaine valeur (1 par dÈfaut) et actualise l'affichage de la barre de vie.
-    /// La Vie de doit pas dÈpasser la constante VIE_MAX.
+    /// [Coroutine] Augmente la vie d'une certaine valeur (1 par d√©faut) et actualise l'affichage de la barre de vie,
+    /// toutes les TimeToRegenVie secondes. 
+    /// La Vie de doit pas d√©passer la constante VIE_MAX.
     /// </summary>
-    /// <param name="pt">Valeur de la rÈgÈnÈration de la vie, 1 par dÈfaut.</param>
-    public void RegenerationVie(uint value = 1)
+    /// <param name="pt">Valeur de la r√©g√©n√©ration de la vie, 1 par d√©faut.</param>
+    private IEnumerator RegenerationVie(uint value = 1)
     {
-        if (!_finPartie && Vie < VIE_MAX)
+        while (!_finPartie && Vie < VIE_MAX)
         {
+            yield return new WaitForSeconds(TimeToRegenVie);
             Vie += value;
-            _barreVie.ChangeVie(Vie); // Mise ‡ jour de l'affichage
+            _barreVie.ChangeVie(Vie); // Mise √† jour de l'affichage
         }
+    }
+
+    /// <summary>
+    /// [Coroutine] Permet de faire clignoter la texture du Player en modifiant la couleur du renderer.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator Clignoter()
+    {
+        int nbTransitionTotale = 5; // Nombre de transitions totales (Rouge -> Normal ou N -> R)
+        // Temps d'attente entre chaque transition : R (0.11) -> N (0.07) -> R (0.11) -> N (0.05) -> R (0.09) -> N
+        float[] tempsAttenteAvantTransition = { 0.11f, 0.07f, 0.11f, 0.05f, 0.09f };
+        Color couleurSprite;
+
+        for (int i = 0; i < nbTransitionTotale; ++i)
+        {
+            couleurSprite = (i % 2 == 0 ? Color.red : Color.white); // Choix du filtre
+            _renderer.material.color = couleurSprite; // Application du filtre sur le renderer
+            yield return new WaitForSeconds(tempsAttenteAvantTransition[i]); // Attente avant changement filtre
+        }
+        _renderer.material.color = Color.white; // Reset du filtre 
+    }
+
+    /// <summary>
+    /// Permet de lancer une coroutine de mani√®re unique en v√©rifiant que la coroutine pr√©c√©dente s'est termin√©e avant de lancer la nouvelle.
+    /// Cela permet d'√©viter des conflits ou des effets ind√©sirables.
+    /// </summary>
+    /// <param name="coroutine">La coroutine que l'on souhaite execut√©e de fa√ßon unique.</param>
+    void StartCoroutineUnique(IEnumerator coroutine)
+    {
+        StopCoroutine(coroutine);
+        StartCoroutine(coroutine);
     }
 }

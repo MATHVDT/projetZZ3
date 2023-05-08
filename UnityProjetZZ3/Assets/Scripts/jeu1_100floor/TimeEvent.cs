@@ -12,47 +12,27 @@ using UnityEngine;
 /// </summary>
 public class TimeEvent : MonoBehaviour
 {
-    public float TimeToVieInc;
     public float TimeToScoreInc;
     //public float TimeBeforeStartGame;
 
-    private Player _player;
-
-    public uint _score = 1;
-
-    private float _scoreTime;
-    private float _vieTime;
-
-    private float _currentTime;
+    private uint _score = 1;
 
     private AffichageScore _affichageScore;
 
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
         _affichageScore = GameObject.Find("[UI] Score").GetComponent<AffichageScore>();
         Debug.Log("start jeu1_100FLOOR");
+        StartCoroutine(IncrementScore());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator IncrementScore()
     {
-        _currentTime = Time.time;
-
-        // Augmente le score suivant un chrono
-        if (_currentTime - _scoreTime > TimeToScoreInc)
+        while (true)
         {
-            _scoreTime = _currentTime;
+            yield return new WaitForSeconds(TimeToScoreInc);
             _affichageScore.ChangerScore(++_score); // Envoie le nouveau score à l'affichage
         }
-
-        // Régénère le player suivant un chrono
-        if (_currentTime - _vieTime > TimeToVieInc)
-        {
-            _vieTime = _currentTime;
-            _player.RegenerationVie();
-        }
     }
-
 }
